@@ -18,7 +18,9 @@ body {
     background-image: url("images/paul-rabaud-asset.jpg");
     background-repeat: no-repeat;
     background-size: 100vw;
+    backdrop-filter: blur(10px);
     background-position: top center;
+    padding-bottom: 14.2em;
 }
 .site-header {
     display: flex;
@@ -43,30 +45,40 @@ body {
 .container {
     z-index: 1;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    max-width: 950px;
-    margin: 0 auto;
+    flex-wrap: nowrap;
+    flex-direction: row;
     border: 2px;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 300px;
+    height: auto;
 }
 
 
+.site-section.banner {
+    max-height: 15em;
+    background-color: #00000059;
+    border-radius: 5em;
+    padding: 1em;
+    margin: 5em 5em;
+    display: flex;
+}
 
 .site-section.banner h2 {
-    text-align: left;
+    text-align: center;
     font-size: 4em;
     font-weight: 100;
     line-height: 0.9em;
-    margin-top: 2.5em;
-    max-width: 5em;
     color: #fff;
 }
 
 .site-section.banner p {
-    text-align: left;
+    text-align: center;
     font-size: 1.2em;
     line-height: 1.1em;
-    max-width: 20em;
     color: #fff;
     margin: 1em 0;
     
