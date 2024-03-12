@@ -1,0 +1,149 @@
+@import url(https://fonts.googleapis.com/css2?family=Karla&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 18px "Karla";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cormorant Infant";
+}
+body {
+    background-image: url("images/paul-rabaud-asset.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    backdrop-filter: blur(10px);
+    background-position: center;
+    background-attachment: fixed; /* Add this line */
+}
+.site-header {
+    display: flex;
+    justify-content: space-between;
+}
+.site-header nav ul {
+    padding-top: 2em;
+    padding-right: 3em;
+    display: flex;
+}
+
+.site-header nav li {
+    list-style: none outside;
+    padding: 0 1em;
+    color: #D9D9D9;
+}
+
+.site-header nav a {
+    text-decoration: none;
+    color: #D9D9D9;
+}
+
+.site-body {
+    display: flex;
+    flex-direction: row;
+}
+.container {
+    z-index: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    border: 2px;
+}
+
+img {
+
+    width: 300px;
+    height: auto;
+}
+
+
+.site-section.banner {
+    display: flex;
+    background-color: #00000059;
+    border-radius: 5em;
+    padding: 3em;
+    margin: 5em 5em;
+}
+.form-section h2 {
+    text-align: center;
+    font-size: 4em;
+    font-weight: 100;
+    line-height: 0.9em;
+    color: #fff;
+    margin-bottom: 0.3em;
+}
+
+.site-section.banner p {
+    font-size: 1.2em;
+    line-height: 1.1em;
+    color: #fff;
+    
+}
+
+.button {   
+    display: block;
+    border-radius: 10px;
+    text-decoration: none;
+    max-width: 10rem;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    color: #000000;
+    background-color: #D9D9D9;
+}
+
+.button:hover {
+    color: #D9D9D9;
+    background-color: #000000;
+}
+
+
+.form-section {
+    width: 130vw;
+    margin-top: 3em;
+    margin-right: 3em;
+}
+
+label {
+    color:#D9D9D9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.384);
+    margin-bottom: -0.8em
+}
+
+input {
+    border-radius: 2em;
+    padding: 1.5em;
+    margin: 0.5em 0 ;
+    background-color: #000000c5;
+    color: #D9D9D9;
+    display: flex;
+    justify-content: left;
+    border: 2px solid #000000c5;
+}
+
+#content {
+    height: 10em;
+
+}
+
+
+form {
+    margin-bottom: 3em;
+}
+
+
+
+
+.form-section a {
+    text-decoration: none;
+    color: #D9D9D9;
+    background-color: #00202F;
+    border-radius: 0.7em;
+    box-shadow: none;
+    padding: 0.7em;
+    /* margin: 10em; */
+}
