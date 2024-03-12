@@ -19,7 +19,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100vw;
     backdrop-filter: blur(10px);
-    background-position: top center;
+    background-position: center;
     padding-bottom: 14.2em;
     background-attachment: fixed;
 }
