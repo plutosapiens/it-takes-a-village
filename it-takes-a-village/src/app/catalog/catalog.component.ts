@@ -14,6 +14,16 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.getCatalogItems()
-      .subscribe(data => this.posts = data, error => console.error(error));
+      .subscribe(data => {
+        this.posts = data;
+
+                // Log the entire array and individual post properties
+                console.log(this.posts);
+                for (const post of this.posts) {
+                  console.log(post.title);
+                  console.log(post.content);
+                }
+
+       }, error => console.error(error));
   }
 }

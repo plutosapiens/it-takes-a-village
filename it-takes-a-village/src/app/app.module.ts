@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule }  from '@angular/fire/compat/auth'; // Import for Firebase Authentication (optional)
 // Import other Firebase modules as needed (Firestore, Storage, etc.)
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.development';
 
 
 @NgModule({
