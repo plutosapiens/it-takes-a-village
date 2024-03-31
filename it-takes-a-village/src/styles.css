@@ -19,14 +19,10 @@ body {
     background-image: url("https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/paul-rabaud-asset.jpg?alt=media&token=29dbcc28-38f8-48fe-8aa5-4f9ddf217d7d");
     background-repeat: no-repeat;
     background-size: 100vw;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     background-position: center;
     padding-bottom: 14.2em;
     background-attachment: fixed;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-size: 17px;
-}
+
