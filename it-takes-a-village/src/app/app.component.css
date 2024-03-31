@@ -1,26 +1,22 @@
-@import url(https://fonts.googleapis.com/css2?family=Karla&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap);
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font: 18px "Karla";
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Cormorant Infant";
-}
-
-body {
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/paul-rabaud-asset.jpg?alt=media&token=29dbcc28-38f8-48fe-8aa5-4f9ddf217d7d");
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/paul-rabaud-asset.png?alt=media&token=0fdc9694-d4bf-423d-b5f9-91d9ebbd28be);
     background-repeat: no-repeat;
     background-size: 100vw;
-    backdrop-filter: blur(10px);
-    background-position: center;
-    padding-bottom: 14.2em;
+    background-position: top center;
     background-attachment: fixed;
+  }
+  
+  app-header, app-footer {
+    z-index: 1;
 }
+
+  app-main {
+    flex: 1 1 auto;
+    z-index: 0;
+    flex-grow: 1;
+    position: relative;
+  }
+  
