@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css2?family=Karla&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 18px "Karla";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cormorant Infant";
+}
+
+body {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/paul-rabaud-asset.jpg?alt=media&token=29dbcc28-38f8-48fe-8aa5-4f9ddf217d7d");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    backdrop-filter: blur(10px);
+    background-position: center;
+    padding-bottom: 14.2em;
+    background-attachment: fixed;
+}

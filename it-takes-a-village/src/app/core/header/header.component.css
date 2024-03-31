@@ -1,0 +1,30 @@
+html {
+    font: 18px "Karla";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cormorant Infant";
+}
+
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-header nav ul {
+    padding-top: 2em;
+    padding-right: 3em;
+    display: flex;
+}
+
+.site-header nav li {
+    list-style: none outside;
+    padding: 0 1em;
+    color: #D9D9D9;
+}
+
+.site-header nav a {
+    text-decoration: none;
+    color: #D9D9D9;
+}
