@@ -22,7 +22,9 @@ export class SignupComponent {
       // Handle succesful signup (e.g., navigate to home page)
     })
     .catch(error => {
-      // Handle signup error(e.g., display error message)
+      console.error('Signup error:', error);
+      const errorMessage = error.message;
+      alert(errorMessage); // Display error message to user
     });
   }
 
