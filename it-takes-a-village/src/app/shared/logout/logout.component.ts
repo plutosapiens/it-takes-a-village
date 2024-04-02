@@ -8,18 +8,19 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LogoutComponent implements OnInit {
   constructor(private authService: AuthService) {}
+
   ngOnInit(): void { }
 
   logout() {
     this.authService.logout()
-    .then(() => {
-      console.log('logged out :)')
-      // Handle successful logout (optional)
-    })
-    .catch(error => {
-      console.error('Logout error:', error);
-      console.log('whopsie')
-      // Handle logout error (optional)
-    });
+      .then(() => {
+        console.log('Logged out successfully');
+        // Redirect to home page after logout
+        window.location.reload();
+      })
+      .catch(error => {
+        console.error('Logout error:', error);
+        // Handle logout error (optional)
+      });
   }
 }

@@ -1,6 +1,8 @@
 <header class="site-header">
     <div class="header">
-        <a href="#">Village</a>
+        <p *ngIf="userEmail">Welcome back {{ userEmail }}</p>
+        <p *ngIf="!userEmail">Hi guest</p>
+        <app-logout *ngIf="userEmail" />
     </div>
     <nav>
         <ul>
@@ -10,7 +12,7 @@
             <li><a href="#"></a>Login</li>
             <li><a href="#"></a>Favourites</li>
             <li><a href="#"></a>404</li>
-            <li> <app-logout /></li>
         </ul>
+
     </nav>
 </header>
