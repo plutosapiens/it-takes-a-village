@@ -7,10 +7,10 @@
     </section>
     <section class="form-section">
         <form>
-            <input type="string" name="title" placeholder="title">
-            <input type="string" name="image" placeholder="image">
-            <input type="string" name="contents" placeholder="contents">
-          <button type="submit">Add new</button>
+            <input type="string" id="title" placeholder="title" required>
+            <input type="string" id="img" placeholder="image" required>
+            <input type="string" id="content" placeholder="content" required>
+          <button type="submit" (click)="addPost()">Add new</button>
         </form>
 
     </section>
