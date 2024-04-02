@@ -1,17 +1,8 @@
 .main{
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    width: 100%;
     overflow: auto;
 }
 .container {
-    z-index: 1;
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    border: 2px;
-    justify-content: center;
     align-items: center;
 }
 
@@ -19,7 +10,6 @@ img {
     width: 300px;
     height: auto;
 }
-
 
 .site-section.banner {
     max-height: 15em;
@@ -38,31 +28,6 @@ img {
     color: #fff;
 }
 
-.site-section.banner p {
-    text-align: center;
-    font-size: 1.2em;
-    line-height: 1.1em;
-    color: #fff;
-    margin: 1em 0;
-}
-
-.button {   
-    display: block;
-    border-radius: 10px;
-    text-decoration: none;
-    max-width: 10rem;
-    padding: 0.5em 1.5em;
-    text-decoration: none;
-    color: #000000;
-    background-color: #D9D9D9;
-}
-
-.button:hover {
-    color: #D9D9D9;
-    background-color: #000000;
-}
-
-
 .content-section {
     max-height: 15em;
     margin: 0 5em;
@@ -71,17 +36,15 @@ img {
 .catalog-container {
     display: grid;
     grid-template-columns: 1fr; /* Display items in a single column */
-    grid-gap: 20px; /* Adjust the gap between items */
+    /* grid-gap: 1em */
 }
-
 
 .content.container {
     border-radius: 2em;
     padding: 1em;
-    margin: 1em 0 ;
+    margin: 0.5em 0 ;
     background-color: #000000c5;
     color: #D9D9D9;
-    justify-content: left;
 }
 
 .content-img  img{
@@ -103,4 +66,9 @@ img {
     box-shadow: none;
     padding: 0.7em;
     margin: 1em;
+}
+
+.content-text a:hover {
+    color: #D9D9D9;
+    background-color: #000000;
 }
