@@ -16,6 +16,7 @@ import { environment } from '../environments/environment.development';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { Router } from '@angular/router';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { SignupComponent } from './signup/signup.component';
     HttpClientModule,    
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-   FormsModule
+   FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
