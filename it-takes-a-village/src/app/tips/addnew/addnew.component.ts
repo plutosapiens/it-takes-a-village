@@ -29,8 +29,10 @@ export class AddnewComponent {
       this.router.navigate(['/catalog'])
     })
     .catch(error => {
-      console.error('Error adding item:', error);
-      // Handle errors appropriately (e.g., display error message to user)
+      console.error('Error adding item:', error);      
+      console.error('Login error:', error);
+      const errorMessage = error.message;
+      alert(errorMessage); // Display error message to user
     });
   }
 }
