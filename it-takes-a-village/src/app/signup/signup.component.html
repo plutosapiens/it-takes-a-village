@@ -1,28 +1,20 @@
 <p>signup works!</p>
-<form (ngSubmit)="signup()">
-    <input type="email" name="email" [(ngModel)]="email" placeholder="email" required>
-    <input type="password" name="password" [(ngModel)]="password" placeholder="password" required>
-    <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="confirl password" required>
-    <button type="submit">Signup</button>
-  </form>
+
 
 <div class="site-body">
     <section class="site-section banner">
-        <div class="info container">
+        <div class="info-container">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam id sequi omnis ratione illo maxime iusto porro sed adipisci tempore quis ipsa aliquid ea, dolorem modi fugit quibusdam autem numquam.</p>
-            <img class="image" src="images/catalog-house.png" alt="catalog-house">
+            <img class="image" src="https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/catalog-house.png?alt=media&token=9ebbb7f0-98fa-42e0-9d33-498f096c7f7e" alt="catalog-house">
         </div>
     </section>
     <section class="form-section">
-        <h2>Add a tip</h2>
-        <form class="form container">
-            <label for="imageUrl">ImageUrl:</label><br>
-            <input type="text" id="imageUrl" name="imageUrl"><br>
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title">
-            <label for="content">Content:</label><br>
-            <input type="text" id="content" name="content">
-          </form>
-          <a href="#">Submit</a>
+        <form (ngSubmit)="signup()">
+          <input type="name" name="name" [(ngModel)]="name" placeholder="name" required>
+          <input type="email" name="email" [(ngModel)]="email" placeholder="email" required>
+          <input type="password" name="password" [(ngModel)]="password" placeholder="password" required>
+          <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="confirl password" required>
+          <button type="submit">Signup</button>
+        </form>
 
     </section>
