@@ -13,6 +13,7 @@ import { CatalogComponent } from './tips/catalog/catalog.component';
 import { LoginComponent } from './user/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './user/signup/signup.component';
+import { AddnewComponent } from './tips/addnew/addnew.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SignupComponent } from './user/signup/signup.component';
     CatalogComponent,
     LoginComponent,
     SignupComponent,
+    AddnewComponent,
   ],
   imports: [
     BrowserModule,

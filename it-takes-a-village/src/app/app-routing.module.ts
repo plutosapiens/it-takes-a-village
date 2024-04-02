@@ -5,6 +5,7 @@ import { HomeComponent } from './core/home/home.component';
 import { LoginComponent } from './user/login/login.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { CatalogComponent } from './tips/catalog/catalog.component';
+import { AddnewComponent } from './tips/addnew/addnew.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'catalog', component: CatalogComponent },
+  { path: 'addnew', component: AddnewComponent },
 
 ];
 
