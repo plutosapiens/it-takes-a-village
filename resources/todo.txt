@@ -1,0 +1,11 @@
+TODO Wednesday:
+0. Add ownerId to catalog colection
+1. Make input fields in 'add new' required 
+    1.1. Handle errors in add new
+2. View posts
+3. Edit posts
+4. Delete posts
+5. Add favourites page
+6. Add 404 page
+7. Hide buttons for guests/users
+8. RouteGuarding
