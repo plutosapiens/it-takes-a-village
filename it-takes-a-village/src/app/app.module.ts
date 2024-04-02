@@ -12,8 +12,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule }  from '@angular/fire/compat/auth'; // Import for Firebase Authentication (optional)
 // Import other Firebase modules as needed (Firestore, Storage, etc.)
 import { environment } from '../environments/environment.development';
-import { SignupComponent } from './signup/signup.component';
+
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,6 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     MainComponent,
     CatalogComponent,
-    SignupComponent,
     LoginComponent
   ],
   imports: [
@@ -31,8 +31,8 @@ import { LoginComponent } from './login/login.component';
     SharedModule,
     HttpClientModule,    
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
-   
+    AngularFireAuthModule,
+   FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
