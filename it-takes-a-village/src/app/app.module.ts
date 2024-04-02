@@ -9,10 +9,10 @@ import { AngularFireAuthModule }  from '@angular/fire/compat/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment.development';
 
-import { CatalogComponent } from './catalog/catalog.component';
-import { LoginComponent } from './login/login.component';
+import { CatalogComponent } from './tips/catalog/catalog.component';
+import { LoginComponent } from './user/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './user/signup/signup.component';
 
 @NgModule({
   declarations: [

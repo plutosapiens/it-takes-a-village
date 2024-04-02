@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.email, this.password)
     .then(() => {
-      // Handle successful login (e.g., navigate to another page)
-      this.router.navigate(['/']);
+      this.router.navigate(['/']); // Handle successful login (e.g., navigate to another page)
     })
     .catch(error => {
       console.error('Login error:', error);

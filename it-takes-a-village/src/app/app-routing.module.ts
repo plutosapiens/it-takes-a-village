@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './core/home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { CatalogComponent } from './catalog/catalog.component';
+import { LoginComponent } from './user/login/login.component';
+import { SignupComponent } from './user/signup/signup.component';
+import { CatalogComponent } from './tips/catalog/catalog.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
