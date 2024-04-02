@@ -15,6 +15,7 @@ import { environment } from '../environments/environment.development';
 
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     MainComponent,
     CatalogComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
