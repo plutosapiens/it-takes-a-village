@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
       // Handle successful login (e.g., navigate to another page)
     })
     .catch(error => {
-      // Handle login error (e.g., display error message)
+      console.error('Login error:', error);
+      const errorMessage = error.message;
+      alert(errorMessage); // Display error message to user
     });
   }
 }
