@@ -1,18 +1,20 @@
 <header class="site-header">
-    <div class="header">
-        <p *ngIf="userEmail">Welcome back {{ userEmail }}</p>
-        <p *ngIf="!userEmail">Hi guest</p>
-        <app-logout *ngIf="userEmail" />
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#"></a>Home</li>
-            <li><a href="#"></a>Catalog</li>
-            <li><a href="#"></a>Register</li>
-            <li><a href="#"></a>Login</li>
-            <li><a href="#"></a>Favourites</li>
-            <li><a href="#"></a>404</li>
-        </ul>
 
-    </nav>
+
+
+<div class="header">
+    <p *ngIf="userEmail">Welcome back {{ userEmail }}</p>
+    <p *ngIf="!userEmail">Hi guest</p>
+    <a *ngIf="userEmail" (click)="logout()">Logout</a>
+  </div>
+  <nav>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/catalog">Catalog</a></li>
+      <li><a href="/signup">Sign Up</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="#">Favourites</a></li>
+      <li><a href="#">404</a></li>
+    </ul>
+  </nav>
 </header>

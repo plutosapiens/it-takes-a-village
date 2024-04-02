@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-import { initializeApp } from "firebase/app";
-import { environment } from 'src/environments/environment.development';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,34 +7,17 @@ import { environment } from 'src/environments/environment.development';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-
-
   userEmail: string | null = null;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    try {
-      // Initialize Firebase app
-      const firebaseApp = initializeApp(environment.firebase);
-      // Get authentication instance
-      const auth = getAuth(firebaseApp);
+    this.authService.getCurrentUser().subscribe(user => {
+      this.userEmail = user ? user.email : null;
+    });
+  }
 
-      // Check authentication state
-      onAuthStateChanged(auth, (user: User | null) => {
-        if (user) {
-          console.log(`User is signed in ${user.email}`);
-          this.userEmail = user.email
-          // You can do other tasks here, such as updating UI or redirecting the user.
-        } else {
-          console.log('User is not signed in');
-          // You can do other tasks here, such as displaying a login form.
-        }
-      });
-    } catch (error) {
-      console.error('Error initializing Firebase or checking authentication state:', error);
-      // Handle error appropriately (e.g., display an error message)
-    }
+  logout(): void {
+    this.authService.logout();
   }
 }
