@@ -14,7 +14,7 @@ export class SignupComponent {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {}
+    ngOnInit(): void { }
 
   signup() {
     this.authService.signup(this.email, this.password)

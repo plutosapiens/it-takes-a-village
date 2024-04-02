@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit(): void { }
   login() {
     this.authService.login(this.email, this.password)
     .then(() => {

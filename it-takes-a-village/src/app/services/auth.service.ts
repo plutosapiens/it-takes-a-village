@@ -18,6 +18,6 @@ export class AuthService {
   }
 
   logout(){
-    return this.afAuth.signOut;
+    return this.afAuth.signOut()
   }
 }
