@@ -1,13 +1,10 @@
 .site-header {    
-    padding-top: 2em;
-    padding-right: 3em;
+    padding: 2em;
     display: flex;
     justify-content: space-between;
 }
 
 .site-header nav ul {
-    /* padding-top: 2em;
-    padding-right: 3em; */
     display: flex;
 }
 
