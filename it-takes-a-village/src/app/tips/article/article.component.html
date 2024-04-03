@@ -11,7 +11,8 @@
             </div>
             <div class="content-interact">
                 <img class="image" [src]="post?.img" alt="catalog-house"> <!-- These brackets signal Angular that I'm using property binding.  -->
-                <a href="#">Edit</a>
+                <a [routerLink]="['/update', post?.id]">Edit</a> 
+
                 <a href="#">Delete</a>
                 <a href="#">Like</a>
             </div>

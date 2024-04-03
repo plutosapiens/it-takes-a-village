@@ -7,6 +7,7 @@ import { SignupComponent } from './user/signup/signup.component';
 import { CatalogComponent } from './tips/catalog/catalog.component';
 import { AddnewComponent } from './tips/addnew/addnew.component';
 import { ArticleComponent } from './tips/article/article.component';
+import { UpdateComponent } from './tips/update/update.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'catalog', component: CatalogComponent },
   { path: 'addnew', component: AddnewComponent },
   { path: 'article/:id', component: ArticleComponent },
+  { path: 'update/:id', component: UpdateComponent },
+
 
 ];
 

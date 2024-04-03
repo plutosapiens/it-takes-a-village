@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './user/signup/signup.component';
 import { AddnewComponent } from './tips/addnew/addnew.component';
 import { ArticleComponent } from './tips/article/article.component';
+import { UpdateComponent } from './tips/update/update.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ArticleComponent } from './tips/article/article.component';
     SignupComponent,
     AddnewComponent,
     ArticleComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,
