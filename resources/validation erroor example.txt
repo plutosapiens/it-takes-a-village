@@ -1,0 +1,35 @@
+export class ValidationErrors extends Error {
+  constructor(public field: string, public message: string) {
+    super(message);
+  }
+}
+
+async addPost() {
+  // ... existing code to get title, img, content, and ownerId
+
+  try {
+    if (!title || title.trim() === '') {
+      throw new ValidationErrors('title', 'Title is required.'); // Throw custom error
+    }
+
+    if (!img || img.trim() === '') {
+      throw new ValidationErrors('img', 'Image URL is required.'); // Throw custom error
+    }
+
+    if (!content || content.trim() === '') {
+      throw new ValidationErrors('content', 'Content is required.'); // Throw custom error
+    }
+
+    await this.dataService.addPost({ title, img, content, ownerId });
+    console.log('Item added successfully!');
+    this.router.navigate(['/catalog']);
+  } catch (error) {
+    console.error('Error adding item:', error);
+    if (error instanceof ValidationErrors) {
+      // Access specific error properties
+      alert(`Error: ${error.field} - ${error.message}`);
+    } else {
+      alert('An unexpected error occurred.'); // Handle other errors
+    }
+  }
+}

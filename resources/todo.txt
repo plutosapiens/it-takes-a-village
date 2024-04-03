@@ -10,3 +10,4 @@ DONE 0. Add ownerId to catalog colection
 7. Hide buttons for guests/users
 8. RouteGuarding
 9. Use consistent and standardized error handling
+    9.1 Check the validation error example
