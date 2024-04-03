@@ -26,6 +26,20 @@ export class AddnewComponent {
     let ownerId: string = '';
 
     try {
+
+      if (!title || title.trim() === '') {
+        throw new Error('Title is required.'); // Throw error for client-side handling
+      }
+      
+      if (!img || img.trim() === '') {
+        throw new Error('Image URL is required.'); // Throw error for client-side handling
+      }
+      
+      if (!content || content.trim() === '') {
+        throw new Error('Content is required.'); // Throw error for client-side handling
+      }
+
+
       const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
       ownerId = user ? user.uid : 'idk';
 
