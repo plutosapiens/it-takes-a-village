@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs';
+import { ApiService } from 'src/app/api.service';
 import { DataService } from 'src/app/services/data.service';
 import { Post } from 'src/app/types/post';
 
@@ -14,7 +16,8 @@ export class UpdateComponent implements OnInit {
   constructor(
     private dataService: DataService, 
     private route: ActivatedRoute,
-    private firestore: AngularFirestore) {}
+    private firestore: AngularFirestore,
+    private apiService: ApiService) {}
     
   postData: Post = {
     title: '',
@@ -22,19 +25,49 @@ export class UpdateComponent implements OnInit {
     content: '',
   }
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const postId = params.get('id');
-      if(postId) {
-        this.firestore.collection<Post>('catalog').doc<Post>(postId).valueChanges()
-        .subscribe(post => this.post = post ? post : null)          
-        console.log('Post data retrieved:', this.post); // Log retrieved data
+  // ngOnInit(): void {
+  //   this.route.paramMap.subscribe(params => {
+  //     const postId = params.get('id');
+  //     if(postId) {
+  //       this.firestore.collection<Post>('catalog').doc<Post>(postId).valueChanges()
+  //       .subscribe(post => this.post = post ? post : null)          
+  //       console.log('Post data retrieved:', this.post); // Log retrieved data
         
-        console.log(`postid ${postId}`)
+  //       console.log(`postid ${postId}`)
 
-            }
-          });
+  //           }
+  //         });
+  // }
+  async ngOnInit(): Promise<void> {  
+    const postId = this.route.snapshot.paramMap.get('id'); // Use snapshot for simplicity
+ 
+    if (postId) {
+      try {
+        this.post = await this.apiService.getPostById(postId).pipe(first()).toPromise(); // Use getPostById
+        console.log('Post data retrieved:', this.post);
+      } catch (error) {
+        console.error('Error retrieving post data:', error);
+        // Handle errors gracefully, e.g., display an error message to the user
+      }
+    }
   }
+  
+
+  // onSubmit() {
+  //   const postId = this.route.snapshot.paramMap.get('id');
+  //   if (postId) {
+  //     this.dataService.updatePost(postId, this.postData)
+  //       .then(() => {
+  //         console.log('Post updated successfully!');
+  //         // Consider redirecting to a success page or displaying a success message
+  //       })
+  //       .catch(error => {
+  //         console.error("Error updating post:", error);
+  //       });
+  //   } else {
+  //     console.error('Error: Post data not available for update.');
+  //   }
+  // }
 
   onSubmit() {
     const postId = this.route.snapshot.paramMap.get('id');
