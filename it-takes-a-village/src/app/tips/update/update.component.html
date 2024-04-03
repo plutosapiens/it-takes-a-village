@@ -1,18 +1,22 @@
 <div class="site-body">
   <section class="site-section banner">
     <div class="info-container">
-      <p>Update Existing Post</p> <img class="image" src="https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/catalog-house.png?alt=media&token=9ebbb7f0-98fa-42e0-9d33-498f096c7f7e" alt="catalog-house">
+      <p>Update Existing Post</p>
+      <img class="image" src="https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/catalog-house.png?alt=media&token=9ebbb7f0-98fa-42e0-9d33-498f096c7f7e" alt="catalog-house">
     </div>
   </section>
-  <section class="form-section">
-    <form>
-      <input type="string" id="title" placeholder="title">
+
+  <div *ngIf="!post">Loading post details...</div>
+
+  <section  *ngIf="post" class="form-section">
+    <form *ngIf="post" (ngSubmit)="onSubmit()">
+      <input type="text" id="title" [(ngModel)]="post.title" name="title" placeholder="title">
       <div class="image-upload-container">
         <label for="img">Image (click to upload):</label>
-        <input type="file" id="img" accept="image/*" hidden>
+        <input type="file" id="img" accept="image/*" (change)="onImageChange($event)">
       </div>
-      <input type="string" id="content" placeholder="content">
-      <button type="submit" >Add new</button>
+      <textarea id="content" [(ngModel)]="post.content" name="content" placeholder="content"></textarea>
+      <button type="submit">Update Post</button>
     </form>
   </section>
 </div>

@@ -10,7 +10,7 @@ import { Post } from 'src/app/types/post';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  post: Post |null = null;
+  post: Post | null = null;
   constructor(
     private dataService: DataService, 
     private route: ActivatedRoute,
@@ -22,35 +22,42 @@ export class UpdateComponent implements OnInit {
     content: '',
   }
 
-
-
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const postId = params.get('id');
       if(postId) {
         this.firestore.collection<Post>('catalog').doc<Post>(postId).valueChanges()
-        .subscribe(post => this.post = post? post : null)
+        .subscribe(post => this.post = post ? post : null)          
+        console.log('Post data retrieved:', this.post); // Log retrieved data
+        
         console.log(`postid ${postId}`)
-      } else{
-        console.log('nopoatid :(')
-      }
-    })
+
+            }
+          });
   }
 
-onSubmit() {
-  this.route.paramMap.subscribe(params => {
-    const postId = params.get('id');
-  if (postId) {
-    this.dataService.updatePost(postId, this.postData)
-      .then(() => {
-        console.log('Post updated successfully!');
-      })
-      .catch(error => {
-        console.error("Error updating post:", error);
-      });
-  } else {
-    console.error('Error: Post data not available for update.');
+  onSubmit() {
+    const postId = this.route.snapshot.paramMap.get('id');
+    if (postId) {
+      this.dataService.updatePost(postId, this.postData)
+        .then(() => {
+          console.log('Post updated successfully!');
+          // Consider redirecting to a success page or displaying a success message
+        })
+        .catch(error => {
+          console.error("Error updating post:", error);
+        });
+    } else {
+      console.error('Error: Post data not available for update.');
+    }
   }
-  })
-}
+
+  onImageChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      // Handle image upload logic using your preferred method (e.g., Firebase Storage)
+      // Update postData.img with the uploaded image URL after successful upload
+      console.log('Image selected for upload:', file.name);
+    }
+  }
 }
