@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { take } from 'rxjs';
+import { finalize } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +15,15 @@ export class ImageuploadService {
 
     try {
       await uploadTask.snapshotChanges().pipe(
-        take(1) // Monitor upload progress (optional)
+        finalize(() => 
+        console.log('Image uploaded succesfully'))// Here I can put the loader later
       ).toPromise();
 
       const downloadURL = await fileRef.getDownloadURL().toPromise();
       return downloadURL;
     } catch (error) {
       console.error('Error uploading image:', error);
-      throw error; // Re-throw the error for handling in the component
+      throw error;
     }
   }
 }
