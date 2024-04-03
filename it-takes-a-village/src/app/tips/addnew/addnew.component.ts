@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ImageuploadService } from 'src/app/services/imageupload.service';
-import { Post } from 'src/app/types/post';
 
 @Component({
   selector: 'app-addnew',
@@ -14,13 +13,11 @@ import { Post } from 'src/app/types/post';
 })
 export class AddnewComponent {
 
-  selectedPost: Post | null = null;
-
   constructor(
     private dataService: DataService, 
     private router: Router,
     private authService: AuthService,
-    private imageService: ImageuploadService,
+    private imageService: ImageuploadService
   ) {}
 
   async addPost() {
@@ -30,7 +27,21 @@ export class AddnewComponent {
     
     let ownerId: string = '';
 
+
+    const fileInput = document.getElementById('img') as HTMLInputElement;
+    const file = fileInput.files?.[0]; // Using optional chaining to handle null or undefined
+    if (!file) {
+        alert('Please select an image to upload.');
+        return; // No file selected
+    }
+    
+
+    const uploadPath = `uploads/${file.name}`;
+
+
     try {
+
+      const downloadURL = await this.imageService.uploadImage(file, uploadPath);
 
       if (!title || title.trim() === '') {
         throw new Error('Title is required.'); // Throw error for client-side handling
@@ -46,15 +57,17 @@ export class AddnewComponent {
 
       const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
       ownerId = user ? user.uid : 'idk';
-      
+
       const newPost = {
         title: title,
-        img: 'image',
+        img: downloadURL,
         content: content,
         ownerId: ownerId
       };
+
       console.log(`newpostOwner: ${newPost.ownerId}`);
 
+      // Call addPost from data service
       await this.dataService.addPost(newPost);
       console.log('Item added successfully!');
       this.router.navigate(['/catalog']);

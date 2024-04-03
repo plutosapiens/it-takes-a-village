@@ -10,8 +10,7 @@
         <input type="string" id="title" placeholder="title">
         <div class="image-upload-container">
           <label for="img">Image (click to upload):</label>
-          <input type="file" id="img" accept="image/*" >
-          <!-- <div *ngIf="isLoading" class="loading">Loading babe</div> -->
+          <input type="file" id="img" accept="image/*" hidden>
         </div>
         <input type="string" id="content" placeholder="content">
         <button type="submit" (click)="addPost()">Add new</button>
