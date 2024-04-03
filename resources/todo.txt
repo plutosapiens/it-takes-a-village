@@ -1,7 +1,7 @@
 TODO Wednesday:
 DONE 0. Add ownerId to catalog colection
-1. Make input fields in 'add new' required 
-    1.1. Handle errors in add new
+DONE 1. Make input fields in 'add new' required 
+DONE     1.1. Handle errors in add new
 2. View posts
 3. Edit posts
 4. Delete posts
