@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
+import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-addnew',
   templateUrl: './addnew.component.html',
@@ -8,31 +12,47 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class AddnewComponent {
 
-  constructor(private dataService: DataService, private router: Router) {}
+  constructor(
+    private dataService: DataService, 
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
-  addPost() {
+  async addPost() {
     const title = (document.getElementById('title') as HTMLInputElement).value;
     const img = (document.getElementById('img') as HTMLInputElement).value;
     const content = (document.getElementById('content') as HTMLInputElement).value;
     
-    // Create new catalog post object
-    const newPost = {
-      title: title,
-      img: img,
-      content: content
-    };
+    let ownerId: string = '';
 
-    // Call addPost from data service
-    this.dataService.addPost(newPost)
-    .then(() => {
+    try {
+      const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
+      ownerId = user ? user.uid : 'idk';
+
+      const newPost = {
+        title: title,
+        img: img,
+        content: content,
+        ownerId: ownerId
+      };
+
+      console.log(`newpostOwner: ${newPost.ownerId}`);
+
+      // Call addPost from data service
+      await this.dataService.addPost(newPost);
       console.log('Item added successfully!');
-      this.router.navigate(['/catalog'])
-    })
-    .catch(error => {
-      console.error('Error adding item:', error);      
-      console.error('Login error:', error);
-      const errorMessage = error.message;
-      alert(errorMessage); // Display error message to user
-    });
+      this.router.navigate(['/catalog']);
+    } catch (error) {
+      if (error instanceof HttpErrorResponse) {
+        console.error('Http Error:', error.statusText);
+        alert('An HTTP error occurred: ' + error.statusText); // Display HTTP error message to user
+      } else if (error instanceof Error) {
+        console.error('Error adding item:', error.message);
+        alert('An error occurred: ' + error.message); // Display generic error message to user
+      } else {
+        console.error('Unknown error:', error);
+        alert('An unknown error occurred.'); // Display generic error message to user
+      }
+    }
   }
 }
