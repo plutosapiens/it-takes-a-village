@@ -1,5 +1,5 @@
 TODO Wednesday:
-0. Add ownerId to catalog colection
+DONE 0. Add ownerId to catalog colection
 1. Make input fields in 'add new' required 
     1.1. Handle errors in add new
 2. View posts
@@ -9,3 +9,4 @@ TODO Wednesday:
 6. Add 404 page
 7. Hide buttons for guests/users
 8. RouteGuarding
+9. Use consistent and standardized error handling
