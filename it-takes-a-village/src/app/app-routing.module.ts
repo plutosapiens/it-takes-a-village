@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'addnew', component: AddnewComponent },
-  { path: 'article', component: ArticleComponent },
+  { path: 'article/:id', component: ArticleComponent },
 
 ];
 

@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable, map } from 'rxjs';
 import { Post } from './types/post';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private firestore: AngularFirestore) { } // Inject AngularFirestore
+  private postsCollection: AngularFirestoreCollection<Post>;
 
-  getCatalogItems(): Observable<Post[]> {
-    return this.firestore.collection<Post>('catalog').valueChanges(); // Fetch themes from Firestore
+  constructor(private firestore: AngularFirestore) {
+    this.postsCollection = this.firestore.collection<Post>('catalog'); // Reference catalog collection
   }
 
-  // You can implement other methods here for CRUD operations with Firestore
+  getCatalogItems(): Observable<Post[]> {
+    return this.postsCollection.valueChanges({ idField: 'id' });
+  }
+
+ 
+
+  // ... other CRUD methods as needed
 }
