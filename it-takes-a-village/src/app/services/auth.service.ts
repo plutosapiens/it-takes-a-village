@@ -25,7 +25,6 @@ export class AuthService {
   }
 
   login(email: string, password: string){
-    console.log('went into login function')
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
