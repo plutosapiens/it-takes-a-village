@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { DataService } from 'src/app/services/data.service';
 import { ImageuploadService } from 'src/app/services/imageupload.service';
@@ -27,6 +27,7 @@ export class UpdateComponent implements OnInit {
     private apiService: ApiService,
     private storage: AngularFireStorage,
     private imageUploadService: ImageuploadService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -88,6 +89,7 @@ export class UpdateComponent implements OnInit {
           this.dataService.updatePost(postId, this.postData)
           .then(() => {
             console.log('Post updated successfully!');
+            this.router.navigate(['/catalog']);
           })
           .catch(error => {
             console.error('Error updating post:', error);

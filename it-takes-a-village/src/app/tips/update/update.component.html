@@ -12,7 +12,7 @@
     <form *ngIf="postData" (ngSubmit)="updatePostData()">
       <input type="text" id="title" [(ngModel)]="postData.title" name="title" placeholder="title">
       <div class="image-upload-container">
-        <label for="img">Image (click to upload):</label>
+        <!-- <label for="img">Image (click to upload):</label> -->
         <input type="file" id="img" accept="image/*" (change)="onImageChange($event)">
       </div>
       <textarea id="content" [(ngModel)]="postData.content" name="content" placeholder="content"></textarea>

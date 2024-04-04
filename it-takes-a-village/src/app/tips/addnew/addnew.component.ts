@@ -13,6 +13,7 @@ import { ImageuploadService } from 'src/app/services/imageupload.service';
 })
 export class AddnewComponent {
 
+
   constructor(
     private dataService: DataService, 
     private router: Router,
@@ -64,6 +65,7 @@ export class AddnewComponent {
         content: content,
         ownerId: ownerId
       };
+
 
       console.log(`newpostOwner: ${newPost.ownerId}`);
 
