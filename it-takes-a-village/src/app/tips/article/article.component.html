@@ -13,7 +13,8 @@
             <img class="image" [src]="post?.img" alt="catalog-house"> <!-- These brackets signal Angular that I'm using property binding.  -->
             <a *ngIf="isOwner" [routerLink]="['/update/', urlId]">Edit</a> 
             <a *ngIf="isOwner" [routerLink]="['/delete/', urlId]">Delete</a>
-            <a *ngIf="!isOwner" (click)="likePost()">Like</a> Add null checks for post.id and userId
+            <a *ngIf="!isOwner && !isLiked" (click)="likePost()">Like</a>
+            <a *ngIf="!isOwner && isLiked" (click)="likePost()">Liked</a>
        </div>
     </div>
 </section>

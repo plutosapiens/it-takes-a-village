@@ -17,6 +17,7 @@ export class ArticleComponent implements OnInit {
   postId: string | null = null;
 
   isOwner: boolean = false;
+  isLiked: boolean = false;
 
   constructor(
     private route: ActivatedRoute, 
@@ -48,6 +49,7 @@ export class ArticleComponent implements OnInit {
       this.apiService.getPostById(this.postId).subscribe((post: Post | undefined) => {
         if (post) {
           this.post = post;
+          this.isLiked = post.likedBy.includes(currentUserId); // Check if current user liked the post
           if (currentUserId !== post.ownerId) {
             this.isOwner = false;
           } else {
@@ -67,20 +69,33 @@ export class ArticleComponent implements OnInit {
     })
   }
 
-  likePost(): void {
+  likePost() {
     if (!this.postId || !this.userId) {
       console.error('Post ID or current user ID is missing.');
       return;
     }
-
-    this.likeService.likeItem(this.postId, this.userId)
-      .then(() => {
-        console.log('Item liked successfully!');
-      })
-      .catch(error => {
-        console.error('Error liking item:', error);
-        // Handle error if necessary
-      });
+    if (this.isLiked) {
+      // Unlike the post
+      this.likeService.unlikeItem(this.postId, this.userId)
+        .then(() => {
+          console.log('Post unliked successfully!');
+          this.isLiked = false;
+        })
+        .catch((error: any) => {
+          console.error('Error unliking post:', error);
+          // Handle error if necessary
+        });
+    } else {
+      // Like the post
+      this.likeService.likeItem(this.postId, this.userId)
+        .then(() => {
+          console.log('Post liked successfully!');
+          this.isLiked = true;
+        })
+        .catch(error => {
+          console.error('Error liking post:', error);
+          // Handle error if necessary
+        });
+    }
   }
-
 }

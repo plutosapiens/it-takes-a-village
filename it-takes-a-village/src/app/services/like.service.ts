@@ -6,6 +6,12 @@ import firebase from 'firebase/compat/app';
   providedIn: 'root'
 })
 export class LikeService {
+  
+  unlikeItem(itemId: string, userId: string): Promise<void> {
+    return this.firestore.collection('catalog').doc(itemId).update({
+      likedBy: firebase.firestore.FieldValue.arrayRemove(userId)
+    });
+  }
 
   constructor(private firestore: AngularFirestore) { }
 
