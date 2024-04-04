@@ -6,17 +6,21 @@
     </div>
   </section>
 
-  <div *ngIf="!post">Loading post details...</div>
 
-  <section  *ngIf="post" class="form-section">
-    <form *ngIf="post" (ngSubmit)="onSubmit()">
-      <input type="text" id="title" [(ngModel)]="post.title" name="title" placeholder="title">
+
+  <section  *ngIf="postData" class="form-section">
+    <form *ngIf="postData" (ngSubmit)="updatePostData()">
+      <input type="text" id="title" [(ngModel)]="postData.title" name="title" placeholder="title">
       <div class="image-upload-container">
         <label for="img">Image (click to upload):</label>
         <input type="file" id="img" accept="image/*" (change)="onImageChange($event)">
       </div>
-      <textarea id="content" [(ngModel)]="post.content" name="content" placeholder="content"></textarea>
+      <textarea id="content" [(ngModel)]="postData.content" name="content" placeholder="content"></textarea>
       <button type="submit">Update Post</button>
+      <div *ngIf="isLoading" class="loading-spinner">
+        <p>Loading...</p>
+        <!-- Add your loading spinner or animation here -->
+      </div>
     </form>
   </section>
 </div>
