@@ -33,7 +33,7 @@ handleUserData(currentUserId: string): void {
   if (this.postId) {
     if(currentUserId!==this.postId){
       console.error('NOT TODAY BUCKO!')
-      this.router.navigate(['/'])
+      this.router.navigate(['/404'])
     } else{
       // Trigger the delete operation immediately when the component initializes
       this.deletePost(this.postId);

@@ -2,7 +2,7 @@
 <div class="header">
     <p *ngIf="userEmail">Welcome back {{ userEmail }}</p>
     <p *ngIf="!userEmail">Hi guest</p>
-    <a *ngIf="userEmail" (click)="logout()">Logout</a>
+    <a *ngIf="userEmail" routerLink="/logout">Logout</a>
   </div>
   <nav>
     <ul>
@@ -16,3 +16,5 @@
     </ul>
   </nav>
 </header>
+
+<!-- (click)="logout()" -->

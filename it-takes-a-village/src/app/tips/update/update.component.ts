@@ -52,7 +52,7 @@ export class UpdateComponent implements OnInit {
       if (post) {
         if(currentUserId!==post.ownerId){
           console.error('YOU ARE NOT ALOWED!')
-          this.router.navigate(['/'])
+          this.router.navigate(['/404'])
         }
         // Populate the form with the retrieved post data
         this.postData = post;

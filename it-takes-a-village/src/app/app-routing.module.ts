@@ -10,11 +10,13 @@ import { ArticleComponent } from './tips/article/article.component';
 import { UpdateComponent } from './tips/update/update.component';
 import { DeleteComponent } from './tips/delete/delete.component';
 import { FourofourComponent } from './core/fourofour/fourofour.component';
+import { LogoutComponent } from './shared/logout/logout.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'addnew', component: AddnewComponent },
