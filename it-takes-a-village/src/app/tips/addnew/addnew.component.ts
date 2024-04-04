@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,7 +11,7 @@ import { ImageuploadService } from 'src/app/services/imageupload.service';
   templateUrl: './addnew.component.html',
   styleUrls: ['./addnew.component.css']
 })
-export class AddnewComponent {
+export class AddnewComponent implements OnInit{
 
   constructor(
     private dataService: DataService, 
@@ -19,6 +19,18 @@ export class AddnewComponent {
     private authService: AuthService,
     private imageService: ImageuploadService
   ) {}
+
+  async ngOnInit(): Promise<void> {
+    const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
+    if(!user){
+      console.error('Yuo are not signed in sorry :)')
+      this.router.navigate(['/404'])
+    }
+    else{
+      console.log("good, youre signed in!", user)
+      this.addPost()
+    }
+  }
 
   async addPost() {
 
