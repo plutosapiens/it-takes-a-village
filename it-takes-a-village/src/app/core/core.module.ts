@@ -5,8 +5,6 @@ import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
-import { FourOFourComponent } from './404/FourOFour.component';
-
 
 
 
@@ -15,7 +13,6 @@ import { FourOFourComponent } from './404/FourOFour.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    FourOFourComponent,
   ],
   imports: [
     CommonModule,
