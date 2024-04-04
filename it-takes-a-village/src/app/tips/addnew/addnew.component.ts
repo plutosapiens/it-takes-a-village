@@ -28,15 +28,14 @@ export class AddnewComponent implements OnInit{
     }
     else{
       console.log("good, youre signed in!", user)
-      this.addPost()
+      // this.addPost()
     }
   }
 
   async addPost() {
 
     const title = (document.getElementById('title') as HTMLInputElement).value;
-    const img = (document.getElementById('img') as HTMLInputElement).value;
-    const content = (document.getElementById('content') as HTMLInputElement).value;
+const content = (document.getElementById('content') as HTMLInputElement).value;
     
     let ownerId: string = '';
 
@@ -55,11 +54,7 @@ export class AddnewComponent implements OnInit{
       if (!title || title.trim() === '') {
         throw new Error('Title is required.'); // Throw error for client-side handling
       }
-      
-      if (!img || img.trim() === '') {
-        throw new Error('Image URL is required.'); // Throw error for client-side handling
-      }
-      
+
       if (!content || content.trim() === '') {
         throw new Error('Content is required.'); // Throw error for client-side handling
       }

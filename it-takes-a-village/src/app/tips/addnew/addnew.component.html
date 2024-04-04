@@ -8,14 +8,14 @@
   </section>
 
   <section class="form-section">
-    <form>
+    <form (submit)="addPost()">
       <input type="string" id="title" placeholder="title">
       <div class="image-upload-container">
-        <!-- <label for="img">Image (click to upload):</label> -->
-        <input type="file" id="img" accept="image/*">
+        <label for="img">Image (click to upload):</label>
+        <input type="file" id="img" accept="image/*" hidden>
       </div>
       <textarea type="string" id="content" placeholder="content"></textarea>
-      <button type="submit" (click)="addPost()">Add new</button>
+      <button type="submit" >Add new</button>
     </form>
   </section>
   
