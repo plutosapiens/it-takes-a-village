@@ -12,6 +12,7 @@ import { DeleteComponent } from './tips/delete/delete.component';
 import { FourofourComponent } from './core/fourofour/fourofour.component';
 import { LogoutComponent } from './shared/logout/logout.component';
 import { FavouritesComponent } from './user/favourites/favourites.component';
+import { LikeComponent } from './shared/like/like.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },

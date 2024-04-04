@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { LikeService } from 'src/app/services/like.service';
 import { Post } from 'src/app/types/post';
 
 @Component({
@@ -22,14 +23,19 @@ export class ArticleComponent implements OnInit {
     private firestore: AngularFirestore,
     private authService: AuthService,
     private apiService: ApiService,
+    private likeService: LikeService,
+    private router: Router,
     ) {}
 
   urlId: string = ''
+  userId: string = ''
+  
 
   async ngOnInit(): Promise<void> {
     let currentUserId: string = '';
     const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
     currentUserId = user ? user.uid : 'idk';
+    this.userId = currentUserId
     console.log('1currentuser id:', currentUserId )
     this.handleUserData(currentUserId);
     console.log("isowner", this.isOwner)
@@ -62,4 +68,23 @@ export class ArticleComponent implements OnInit {
       } 
     })
   }
+
+  likePost(): void {
+    if (!this.postId || !this.userId) {
+      console.error('Post ID or current user ID is missing.');
+      return;
+    }
+
+    this.likeService.likeItem(this.postId, this.userId)
+      .then(() => {
+        console.log('Item liked successfully!');
+        // Navigate back to the ArticleComponent after the like action is performed
+        this.router.navigate(['/article', this.postId]); // Change the route as per your actual route configuration
+      })
+      .catch(error => {
+        console.error('Error liking item:', error);
+        // Handle error if necessary
+      });
+  }
+
 }
