@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe(user => {
       this.userEmail = user ? user.email : null;
+      console.log('header user email:', this.userEmail)
     });
   }
 
