@@ -70,7 +70,8 @@ const content = (document.getElementById('content') as HTMLInputElement).value;
         title: title,
         img: downloadURL,
         content: content,
-        ownerId: ownerId
+        ownerId: ownerId,
+        likedBy: [] // I hope this doesnt return empty array
       };
 
       // Call addPost from data service

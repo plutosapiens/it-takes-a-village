@@ -19,7 +19,8 @@ export class UpdateComponent implements OnInit {
   postData: Post = {
     title: '',
     img: '',
-    content: ''
+    content: '',
+    likedBy: [] // I hope this doesnt return empty array
   };
 
   isLoading: boolean = false;

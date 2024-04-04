@@ -1,13 +1,13 @@
-TODO Wednesday:
-DONE 0. Add ownerId to catalog colection
-DONE 1. Make input fields in 'add new' required 
-DONE     1.1. Handle errors in add new
-DONE 2. View posts
-DONE 3. Edit posts
-DONE 4. Delete posts
+        TODO Wednesday:
+    DONE 0. Add ownerId to catalog colection
+    DONE 1. Make input fields in 'add new' required 
+    DONE     1.1. Handle errors in add new
+    DONE 2. View posts
+    DONE 3. Edit posts
+    DONE 4. Delete posts
 5. Add favourites page
 6. Add 404 page
-7. Hide buttons for guests/users
+    DONE 7. Hide buttons for guests/users
 ALMOST DONE 8. RouteGuarding
 9. Use consistent and standardized error handling
     9.1 Check the validation error example

@@ -17,6 +17,7 @@ import { AddnewComponent } from './tips/addnew/addnew.component';
 import { ArticleComponent } from './tips/article/article.component';
 import { UpdateComponent } from './tips/update/update.component';
 import { DeleteComponent } from './tips/delete/delete.component';
+import { FavouritesComponent } from './user/favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DeleteComponent } from './tips/delete/delete.component';
     ArticleComponent,
     UpdateComponent,
     DeleteComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,

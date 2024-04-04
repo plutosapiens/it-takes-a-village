@@ -11,6 +11,7 @@ import { UpdateComponent } from './tips/update/update.component';
 import { DeleteComponent } from './tips/delete/delete.component';
 import { FourofourComponent } from './core/fourofour/fourofour.component';
 import { LogoutComponent } from './shared/logout/logout.component';
+import { FavouritesComponent } from './user/favourites/favourites.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'update/:id', component: UpdateComponent },
   { path: 'delete/:id', component: DeleteComponent },
   { path: '404', component: FourofourComponent },
+  { path: 'favourites', component: FavouritesComponent },
 ];
 
 @NgModule({
