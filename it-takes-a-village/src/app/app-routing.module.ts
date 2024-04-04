@@ -12,20 +12,21 @@ import { DeleteComponent } from './tips/delete/delete.component';
 import { FourofourComponent } from './core/fourofour/fourofour.component';
 import { LogoutComponent } from './shared/logout/logout.component';
 import { FavouritesComponent } from './user/favourites/favourites.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
+  { path: 'logout', component: LogoutComponent, canActivate:[AuthGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'catalog', component: CatalogComponent },
-  { path: 'addnew', component: AddnewComponent },
-  { path: 'article/:id', component: ArticleComponent },
-  { path: 'update/:id', component: UpdateComponent },
-  { path: 'delete/:id', component: DeleteComponent },
+  { path: 'addnew', component: AddnewComponent, canActivate:[AuthGuard] },
+  { path: 'article/:id', component: ArticleComponent, canActivate:[AuthGuard] },
+  { path: 'update/:id', component: UpdateComponent, canActivate:[AuthGuard] },
+  { path: 'delete/:id', component: DeleteComponent, canActivate:[AuthGuard] },
   { path: '404', component: FourofourComponent },
-  { path: 'favourites', component: FavouritesComponent },
+  { path: 'favourites', component: FavouritesComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({

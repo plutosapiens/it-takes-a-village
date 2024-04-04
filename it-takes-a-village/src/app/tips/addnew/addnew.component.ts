@@ -25,7 +25,7 @@ export class AddnewComponent implements OnInit{
   async ngOnInit(): Promise<void> {
     const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
     if(!user){
-      console.error('Yuo are not signed in sorry :)')
+      console.error('You are not signed in sorry :)')
       this.router.navigate(['/404'])
     }
     else{

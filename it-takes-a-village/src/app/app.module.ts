@@ -18,6 +18,8 @@ import { ArticleComponent } from './tips/article/article.component';
 import { UpdateComponent } from './tips/update/update.component';
 import { DeleteComponent } from './tips/delete/delete.component';
 import { FavouritesComponent } from './user/favourites/favourites.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { FavouritesComponent } from './user/favourites/favourites.component';
     AngularFireAuthModule,
    FormsModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
