@@ -16,11 +16,13 @@
         <input type="file" id="img" accept="image/*" (change)="onImageChange($event)">
       </div>
       <textarea id="content" [(ngModel)]="postData.content" name="content" placeholder="content"></textarea>
-      <button type="submit">Update Post</button>
-      <div *ngIf="isLoading" class="loading-spinner">
+      <button type="submit" *ngIf="!isLoading">Update Post</button>
+
+      <!-- <div *ngIf="isLoading" class="loading-spinner">
         <p>Loading...</p>
-        <!-- Add your loading spinner or animation here -->
-      </div>
+      </div> -->
+
+      <app-loader *ngIf="isLoading" />
     </form>
   </section>
 </div>

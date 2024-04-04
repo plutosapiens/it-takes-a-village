@@ -4,7 +4,7 @@ DONE 1. Make input fields in 'add new' required
 DONE     1.1. Handle errors in add new
 DONE 2. View posts
 DONE 3. Edit posts
-4. Delete posts
+DONE 4. Delete posts
 5. Add favourites page
 6. Add 404 page
 7. Hide buttons for guests/users
