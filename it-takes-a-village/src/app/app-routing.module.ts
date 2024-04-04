@@ -9,6 +9,7 @@ import { AddnewComponent } from './tips/addnew/addnew.component';
 import { ArticleComponent } from './tips/article/article.component';
 import { UpdateComponent } from './tips/update/update.component';
 import { DeleteComponent } from './tips/delete/delete.component';
+import { FourOFourComponent } from './core/404/FourOFour.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'article/:id', component: ArticleComponent },
   { path: 'update/:id', component: UpdateComponent },
   { path: 'delete/:id', component: DeleteComponent },
+  { path: '404', component: FourOFourComponent },
 
 
 ];

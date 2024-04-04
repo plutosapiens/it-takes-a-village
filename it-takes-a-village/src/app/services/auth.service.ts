@@ -20,6 +20,14 @@ export class AuthService {
     return this.afAuth.authState;
   }
 
+    // Check if the currently logged-in user is the owner of the item
+    async isOwner(postOwnerId: string): Promise<boolean> {
+      const user = await this.getCurrentUser().toPromise();  
+      console.log('Current user ID:', user?.uid);
+  console.log('Post owner ID:', postOwnerId);
+      return user ? user.uid === postOwnerId : false;
+    }
+
   signup(email: string, password: string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
