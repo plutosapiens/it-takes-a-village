@@ -11,18 +11,3 @@
     DONE 8. RouteGuarding
 9. Use consistent and standardized error handling
     9.1 Check the validation error example
-
-PUBLIC:
-home
-login
-signup
-catalog 
-404
-
-PRIVATE:
-logout
-addnew
-article/:id 
-update/:id
-delete/:id
-favourites'
