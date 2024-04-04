@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { ImageuploadService } from 'src/app/services/imageupload.service';
 
 @Component({
@@ -78,19 +77,15 @@ const content = (document.getElementById('content') as HTMLInputElement).value;
       await this.dataService.addPost(newPost);
       console.log('Item added successfully!');
 
-     
 
       this.router.navigate(['/catalog']);
     } catch (error) {
-      if (error instanceof HttpErrorResponse) {
-        console.error('Http Error:', error.statusText);
-        alert('An HTTP error occurred: ' + error.statusText); // Display HTTP error message to user
-      } else if (error instanceof Error) {
-        console.error('Error adding item:', error.message);
-        alert('An error occurred: ' + error.message); // Display generic error message to user
+      if (error instanceof Error) {
+        console.error('Error adding item:',error.message);
+        alert('An error occured: ' + error.message);
       } else {
         console.error('Unknown error:', error);
-        alert('An unknown error occurred.'); // Display generic error message to user
+        alert('An unknown error occurred.');
       }
     }
   }
