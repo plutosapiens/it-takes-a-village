@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -14,14 +16,33 @@ export class DeleteComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
   ){}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    let currentUserId: string = '';
+    const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
+    currentUserId = user ? user.uid : 'idk';
+  
+        console.log('1currentuser id:', currentUserId )
+        this.handleUserData(currentUserId);
+      // });
+    }
+
+
+    handleUserData(currentUserId: string): void {
+
     this.postId = this.route.snapshot.paramMap.get('id');
     if (this.postId) {
-      // Trigger the delete operation immediately when the component initializes
-      this.deletePost(this.postId);
+      if(currentUserId!==this.postId){
+        console.error('NOT TODAY BUCKO!')
+        this.router.navigate(['/'])
+      } else{
+        // Trigger the delete operation immediately when the component initializes
+        this.deletePost(this.postId);
+
+      }
     } else {
       console.error('Post ID not provided.');
     }
