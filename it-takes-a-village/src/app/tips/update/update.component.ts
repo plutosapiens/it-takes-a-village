@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { ImageuploadService } from 'src/app/services/imageupload.service';
 import { Post } from 'src/app/types/post';
@@ -12,6 +14,8 @@ import { Post } from 'src/app/types/post';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
+
+
   postId: string | null = null;
   postData: Post = {
     title: '',
@@ -28,24 +32,42 @@ export class UpdateComponent implements OnInit {
     private storage: AngularFireStorage,
     private imageUploadService: ImageuploadService,
     private router: Router,
+    private authService: AuthService
   ) {}
 
-  ngOnInit(): void {
-    this.postId = this.route.snapshot.paramMap.get('id');
-    if (this.postId) {
-      // Retrieve the post data based on postId
-      this.apiService.getPostById(this.postId).subscribe((post: Post | undefined) => {
-        if (post) {
-          // Populate the form with the retrieved post data
-          this.postData = post;
-        } else {
-          console.error('Post data not found.');
-        }
-      });
-    } else {
-      console.error('Post ID not provided.');
-    }
+
+ async ngOnInit(): Promise<void> {
+  let ownerId: string = '';
+  const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
+  ownerId = user ? user.uid : 'idk';
+
+    // this.authService.getCurrentUser().subscribe(user => {
+    //   this.userEmail = user ? user.email : null;
+      console.log('1currentuser id:', ownerId )
+      this.handleUserData(ownerId);
+    // });
   }
+
+  handleUserData(ownerId: string): void {
+      console.log('2currentuser email:', ownerId )
+
+      this.postId = this.route.snapshot.paramMap.get('id');
+      if (this.postId) {
+        // Retrieve the post data based on postId
+        this.apiService.getPostById(this.postId).subscribe((post: Post | undefined) => {
+          if (post) {
+            // Populate the form with the retrieved post data
+            this.postData = post;
+            console.log('ownerid', this.postData.ownerId)
+          } else {
+            console.error('Post data not found.');
+          }
+        });
+      } else {
+        console.error('Post ID not provided.');
+      }
+    }
+
 
 
   onImageChange(event: any): void {
