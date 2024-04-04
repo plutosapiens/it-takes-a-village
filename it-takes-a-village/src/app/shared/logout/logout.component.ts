@@ -16,7 +16,6 @@ export class LogoutComponent implements OnInit {
       .then(() => {
         console.log('Logged out successfully');
         // Redirect to home page after logout
-        // window.location.reload();    
         this.router.navigate(['/home']);
       })
       .catch(error => {

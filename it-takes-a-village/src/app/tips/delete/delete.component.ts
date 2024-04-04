@@ -40,7 +40,6 @@ export class DeleteComponent implements OnInit {
             console.error('NOT TODAY BUCKO!');
             this.router.navigate(['/404']);
           } else {
-            // Trigger the delete operation immediately when the component initializes
             this.deletePost(this.postId!);
           }
         }
@@ -56,7 +55,6 @@ deletePost(postId: string): void {
   this.dataService.deletePost(postId)
     .then(() => {
       console.log('Post deleted successfully!');
-      // Redirect to the catalog page upon successful deletion
       this.router.navigate(['/catalog']); // Navigate to catalog route
     })
     .catch(error => {

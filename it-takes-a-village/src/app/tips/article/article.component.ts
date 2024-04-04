@@ -47,7 +47,6 @@ export class ArticleComponent implements OnInit {
     if(this.postId) {
       this.apiService.getPostById(this.postId).subscribe((post: Post | undefined) => {
         if (post) {
-          // Use the retrieved post data here
           this.post = post;
           if (currentUserId !== post.ownerId) {
             this.isOwner = false;
@@ -57,7 +56,6 @@ export class ArticleComponent implements OnInit {
         }
       })
     }
-
 
     this.route.paramMap.subscribe(params => {
       const postId = params.get('id');
@@ -78,8 +76,6 @@ export class ArticleComponent implements OnInit {
     this.likeService.likeItem(this.postId, this.userId)
       .then(() => {
         console.log('Item liked successfully!');
-        // Navigate back to the ArticleComponent after the like action is performed
-        this.router.navigate(['/article', this.postId]); // Change the route as per your actual route configuration
       })
       .catch(error => {
         console.error('Error liking item:', error);

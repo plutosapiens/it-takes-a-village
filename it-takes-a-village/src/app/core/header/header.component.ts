@@ -16,9 +16,4 @@ export class HeaderComponent implements OnInit {
       this.userEmail = user ? user.email : null;
     });
   }
-
-  // logout(): void {
-  //   this.authService.logout();
-
-  // }
 }

@@ -5,8 +5,8 @@
     DONE 2. View posts
     DONE 3. Edit posts
     DONE 4. Delete posts
-5. Add favourites page
-6. Add 404 page
+    DONE 5. Add favourites page
+    DONE 6. Add 404 page
     DONE 7. Hide buttons for guests/users
 ALMOST DONE 8. RouteGuarding
 9. Use consistent and standardized error handling

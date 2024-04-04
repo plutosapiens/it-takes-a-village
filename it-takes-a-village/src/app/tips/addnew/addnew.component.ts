@@ -71,7 +71,7 @@ const content = (document.getElementById('content') as HTMLInputElement).value;
         img: downloadURL,
         content: content,
         ownerId: ownerId,
-        likedBy: [] // I hope this doesnt return empty array
+        likedBy: []
       };
 
       // Call addPost from data service
@@ -93,6 +93,5 @@ const content = (document.getElementById('content') as HTMLInputElement).value;
         alert('An unknown error occurred.'); // Display generic error message to user
       }
     }
-
   }
 }
