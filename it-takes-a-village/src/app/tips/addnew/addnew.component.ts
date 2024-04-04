@@ -13,6 +13,8 @@ import { ImageuploadService } from 'src/app/services/imageupload.service';
 })
 export class AddnewComponent implements OnInit{
 
+
+  
   constructor(
     private dataService: DataService, 
     private router: Router,
@@ -28,16 +30,15 @@ export class AddnewComponent implements OnInit{
     }
     else{
       console.log("good, youre signed in!", user)
-      // this.addPost()
     }
   }
 
   async addPost() {
-
     const title = (document.getElementById('title') as HTMLInputElement).value;
 const content = (document.getElementById('content') as HTMLInputElement).value;
     
     let ownerId: string = '';
+    
 
     const fileInput = document.getElementById('img') as HTMLInputElement;
     const file = fileInput.files?.[0]; // Using optional chaining to handle null or undefined
@@ -49,19 +50,22 @@ const content = (document.getElementById('content') as HTMLInputElement).value;
     const uploadPath = `uploads/${file.name}`;
 
     try {
+
       const downloadURL = await this.imageService.uploadImage(file, uploadPath);
 
       if (!title || title.trim() === '') {
         throw new Error('Title is required.'); // Throw error for client-side handling
+
       }
 
       if (!content || content.trim() === '') {
         throw new Error('Content is required.'); // Throw error for client-side handling
       }
 
+      
       const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
       ownerId = user ? user.uid : 'idk';
-
+      
       const newPost = {
         title: title,
         img: downloadURL,
@@ -72,6 +76,9 @@ const content = (document.getElementById('content') as HTMLInputElement).value;
       // Call addPost from data service
       await this.dataService.addPost(newPost);
       console.log('Item added successfully!');
+
+     
+
       this.router.navigate(['/catalog']);
     } catch (error) {
       if (error instanceof HttpErrorResponse) {
@@ -85,5 +92,6 @@ const content = (document.getElementById('content') as HTMLInputElement).value;
         alert('An unknown error occurred.'); // Display generic error message to user
       }
     }
+
   }
 }
