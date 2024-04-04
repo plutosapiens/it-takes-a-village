@@ -37,25 +37,29 @@ export class UpdateComponent implements OnInit {
 
 
  async ngOnInit(): Promise<void> {
-  let ownerId: string = '';
+  let currentUserId: string = '';
   const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
-  ownerId = user ? user.uid : 'idk';
+  currentUserId = user ? user.uid : 'idk';
 
     // this.authService.getCurrentUser().subscribe(user => {
     //   this.userEmail = user ? user.email : null;
-      console.log('1currentuser id:', ownerId )
-      this.handleUserData(ownerId);
+      console.log('1currentuser id:', currentUserId )
+      this.handleUserData(currentUserId);
     // });
   }
 
-  handleUserData(ownerId: string): void {
-      console.log('2currentuser email:', ownerId )
+  handleUserData(currentUserId: string): void {
+      console.log('2currentuser email:', currentUserId )
 
       this.postId = this.route.snapshot.paramMap.get('id');
       if (this.postId) {
         // Retrieve the post data based on postId
         this.apiService.getPostById(this.postId).subscribe((post: Post | undefined) => {
           if (post) {
+            if(currentUserId!==post.ownerId){
+              console.error('YOU ARE NOT ALOWED!')
+              this.router.navigate(['/'])
+            }
             // Populate the form with the retrieved post data
             this.postData = post;
             console.log('ownerid', this.postData.ownerId)
