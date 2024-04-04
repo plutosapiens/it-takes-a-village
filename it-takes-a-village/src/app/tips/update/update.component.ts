@@ -95,6 +95,15 @@ export class UpdateComponent implements OnInit {
   }
     
   updatePostData(): void {
+
+      // Check if any required fields are empty
+  if (!this.postData.title || !this.postData.img || !this.postData.content) {
+    console.error('Please fill in all required fields.');
+    alert('field is required.'); 
+
+    return;
+  }
+
     const postId = this.route.snapshot.paramMap.get('id');
     console.log('Post ID:', postId); // Log the value of postId
     const checkLoaderInterval = setInterval(() => {

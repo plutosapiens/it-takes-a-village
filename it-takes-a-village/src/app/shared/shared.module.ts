@@ -4,6 +4,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LikebtnComponent } from './likebtn/likebtn.component';
 import { LikedbtnComponent } from './likedbtn/likedbtn.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { LikedbtnComponent } from './likedbtn/likedbtn.component';
     LoaderComponent,
     LikebtnComponent,
     LikedbtnComponent,
+    ErrorComponent,
   ],
   imports: [
     CommonModule,

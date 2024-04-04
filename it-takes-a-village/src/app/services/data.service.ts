@@ -20,6 +20,7 @@ export class DataService {
     })
     .catch(error => {
       console.error("Error updating post:", error)
+      throw error;
     })
     }
 
@@ -29,6 +30,7 @@ export class DataService {
         console.log('Post deleted successfully!');
       } catch (error) {
         console.error("Error deleting post:", error);
+        throw error;
       }
     }
   }
