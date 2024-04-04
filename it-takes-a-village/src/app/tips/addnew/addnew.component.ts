@@ -13,7 +13,6 @@ import { ImageuploadService } from 'src/app/services/imageupload.service';
 })
 export class AddnewComponent {
 
-
   constructor(
     private dataService: DataService, 
     private router: Router,
@@ -22,12 +21,12 @@ export class AddnewComponent {
   ) {}
 
   async addPost() {
+
     const title = (document.getElementById('title') as HTMLInputElement).value;
     const img = (document.getElementById('img') as HTMLInputElement).value;
     const content = (document.getElementById('content') as HTMLInputElement).value;
     
     let ownerId: string = '';
-
 
     const fileInput = document.getElementById('img') as HTMLInputElement;
     const file = fileInput.files?.[0]; // Using optional chaining to handle null or undefined
@@ -36,12 +35,9 @@ export class AddnewComponent {
         return; // No file selected
     }
     
-
     const uploadPath = `uploads/${file.name}`;
 
-
     try {
-
       const downloadURL = await this.imageService.uploadImage(file, uploadPath);
 
       if (!title || title.trim() === '') {
@@ -65,9 +61,6 @@ export class AddnewComponent {
         content: content,
         ownerId: ownerId
       };
-
-
-      console.log(`newpostOwner: ${newPost.ownerId}`);
 
       // Call addPost from data service
       await this.dataService.addPost(newPost);

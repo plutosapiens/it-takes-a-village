@@ -8,6 +8,6 @@ DONE 4. Delete posts
 5. Add favourites page
 6. Add 404 page
 7. Hide buttons for guests/users
-8. RouteGuarding
+ALMOST DONE 8. RouteGuarding
 9. Use consistent and standardized error handling
     9.1 Check the validation error example

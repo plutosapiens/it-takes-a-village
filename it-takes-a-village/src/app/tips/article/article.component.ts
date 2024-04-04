@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from 'src/app/api.service';
 import { Post } from 'src/app/types/post';
 
 @Component({
@@ -10,9 +9,15 @@ import { Post } from 'src/app/types/post';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  post: Post |null = null;
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore) {}
+  post: Post | null = null;
+
+  constructor(
+    private route: ActivatedRoute, 
+    private firestore: AngularFirestore
+    ) {}
+
   urlId: string = ''
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const postId = params.get('id');

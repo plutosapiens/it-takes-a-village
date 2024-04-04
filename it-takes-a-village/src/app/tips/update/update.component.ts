@@ -14,9 +14,8 @@ import { Post } from 'src/app/types/post';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-
-
   postId: string | null = null;
+
   postData: Post = {
     title: '',
     img: '',
@@ -35,45 +34,38 @@ export class UpdateComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-
- async ngOnInit(): Promise<void> {
-  let currentUserId: string = '';
-  const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
-  currentUserId = user ? user.uid : 'idk';
-
-    // this.authService.getCurrentUser().subscribe(user => {
-    //   this.userEmail = user ? user.email : null;
-      console.log('1currentuser id:', currentUserId )
-      this.handleUserData(currentUserId);
-    // });
+  async ngOnInit(): Promise<void> {
+    let currentUserId: string = '';
+    const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
+    currentUserId = user ? user.uid : 'idk';
+    console.log('1currentuser id:', currentUserId )
+    this.handleUserData(currentUserId);
   }
-
+  
   handleUserData(currentUserId: string): void {
-      console.log('2currentuser email:', currentUserId )
-
-      this.postId = this.route.snapshot.paramMap.get('id');
-      if (this.postId) {
-        // Retrieve the post data based on postId
-        this.apiService.getPostById(this.postId).subscribe((post: Post | undefined) => {
-          if (post) {
-            if(currentUserId!==post.ownerId){
-              console.error('YOU ARE NOT ALOWED!')
-              this.router.navigate(['/'])
-            }
-            // Populate the form with the retrieved post data
-            this.postData = post;
-            console.log('ownerid', this.postData.ownerId)
-          } else {
-            console.error('Post data not found.');
-          }
-        });
-      } else {
-        console.error('Post ID not provided.');
-      }
+    console.log('2currentuser email:', currentUserId )
+  
+    this.postId = this.route.snapshot.paramMap.get('id');
+    if (this.postId) {
+      // Retrieve the post data based on postId
+      this.apiService.getPostById(this.postId).subscribe((post: Post | undefined) => {
+      if (post) {
+        if(currentUserId!==post.ownerId){
+          console.error('YOU ARE NOT ALOWED!')
+          this.router.navigate(['/'])
+        }
+        // Populate the form with the retrieved post data
+        this.postData = post;
+        console.log('ownerid', this.postData.ownerId)
+        } else {
+          console.error('Post data not found.');
+        }
+      });
+    } else {
+      console.error('Post ID not provided.');
     }
-
-
-
+  }
+  
   onImageChange(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -84,26 +76,23 @@ export class UpdateComponent implements OnInit {
         this.isLoading = true; // Set isLoading to true while uploading
         // Call the uploadImage method from imageuploadService
         this.imageUploadService.uploadImage(file, path)
-          .then(downloadUrl => {
-            // Update the postData object with the imageUrl
-            this.postData.img = downloadUrl;
-            console.log('File available at', downloadUrl);
-  
-            // Now that the image has been uploaded, update the post data
-            // this.updatePostData(postId);
-          })
-          .catch(error => {
-            console.error('Error uploading image:', error);
-          })
-          .finally(() => {
-            this.isLoading = false // Set isLoading to false after uploading
-          })
+        .then(downloadUrl => {
+          // Update the postData object with the imageUrl
+          this.postData.img = downloadUrl;
+          console.log('File available at', downloadUrl);
+        })
+        .catch(error => {
+          console.error('Error uploading image:', error);
+        })
+        .finally(() => {
+          this.isLoading = false // Set isLoading to false after uploading
+        })
       } else {
         console.error('Post ID not available.');
       }
     }
   }
-  
+    
   updatePostData(): void {
     const postId = this.route.snapshot.paramMap.get('id');
     console.log('Post ID:', postId); // Log the value of postId
@@ -111,7 +100,6 @@ export class UpdateComponent implements OnInit {
       if (!this.isLoading) { // Proceed only if isLoading is false
         clearInterval(checkLoaderInterval); //Stop checking the loader status
         if(postId) {
-
           this.dataService.updatePost(postId, this.postData)
           .then(() => {
             console.log('Post updated successfully!');
@@ -124,20 +112,5 @@ export class UpdateComponent implements OnInit {
       }
     }, 100); // Check loader status every 100 milliseconds
   }  
-}
 
-  // onSubmit() {
-  //   const postId = this.route.snapshot.paramMap.get('id');
-  //   if (postId) {
-  //     this.dataService.updatePost(postId, this.postData)
-  //       .then(() => {
-  //         console.log('Post updated successfully!');
-  //         // Consider redirecting to a success page or displaying a success message
-  //       })
-  //       .catch(error => {
-  //         console.error("Error updating post:", error);
-  //       });
-  //   } else {
-  //     console.error('Error: Post data not available for update.');
-  //   }
-  // }
+}

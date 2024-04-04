@@ -1,22 +1,19 @@
-    <section class="site-section banner">
-        <div class="welcome-banner container">
-            <h2>{{ post?.title }}</h2>
+<section class="site-section banner">
+    <div class="welcome-banner container">
+        <h2>{{ post?.title }}</h2>
+    </div>
+</section>
+<section class="content-section">
+    <div class="content container">
+        
+        <div class="content-text">
+            <p>{{ post?.content }}</p>
         </div>
-    </section>
-    <section class="content-section">
-        <div class="content container">
-            
-            <div class="content-text">
-                <p>{{ post?.content }}</p>
-            </div>
-            <div class="content-interact">
-                <img class="image" [src]="post?.img" alt="catalog-house"> <!-- These brackets signal Angular that I'm using property binding.  -->
-                <a [routerLink]="['/update/', urlId]">Edit</a> 
-
-                <a [routerLink]="['/delete/', urlId]">Delete</a>
-                <a href="#">Like</a>
-            </div>
+        <div class="content-interact">
+            <img class="image" [src]="post?.img" alt="catalog-house"> <!-- These brackets signal Angular that I'm using property binding.  -->
+            <a [routerLink]="['/update/', urlId]">Edit</a> 
+            <a [routerLink]="['/delete/', urlId]">Delete</a>
+            <a href="#">Like</a>
         </div>
-
-
-    </section>
+    </div>
+</section>

@@ -8,7 +8,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    ) {}
 
   ngOnInit(): void { }
 
@@ -16,8 +20,7 @@ export class LogoutComponent implements OnInit {
     this.authService.logout()
       .then(() => {
         console.log('Logged out successfully');
-        // Redirect to home page after logout
-        // window.location.reload();    
+        // Redirect to home page after logout  
         this.router.navigate(['/home']);
       })
       .catch(error => {

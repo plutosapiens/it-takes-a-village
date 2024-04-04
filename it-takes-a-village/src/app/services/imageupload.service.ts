@@ -7,7 +7,7 @@ import { finalize } from 'rxjs';
 })
 export class ImageuploadService {
 
-  constructor(private storage: AngularFireStorage) { }
+  constructor(private storage: AngularFireStorage) {}
 
   async uploadImage(file: File, path: string): Promise<string> {
     const fileRef = this.storage.ref(path);
@@ -16,7 +16,7 @@ export class ImageuploadService {
     try {
       await uploadTask.snapshotChanges().pipe(
         finalize(() => 
-        console.log('Image uploaded succesfully'))// Here I can put the loader later
+        console.log('Image uploaded succesfully'))
       ).toPromise();
 
       const downloadURL = await fileRef.getDownloadURL().toPromise();

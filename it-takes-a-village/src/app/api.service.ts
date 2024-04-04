@@ -18,7 +18,6 @@ export class ApiService {
     return this.postsCollection.valueChanges({ idField: 'id' });
   }
 
- 
   getPostById(postId: string): Observable<Post | undefined> {
     const postDoc: AngularFirestoreDocument<Post> = this.postsCollection.doc<Post>(postId);
     return postDoc.valueChanges().pipe(

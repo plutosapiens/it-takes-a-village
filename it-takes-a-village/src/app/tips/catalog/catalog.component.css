@@ -36,7 +36,7 @@ img {
 .catalog-container {
     display: grid;
     grid-template-columns: 1fr; /* Display items in a single column */
-    /* grid-gap: 1em */
+
 }
 
 .content.container {
