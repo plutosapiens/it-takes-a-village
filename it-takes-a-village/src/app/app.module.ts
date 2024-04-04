@@ -16,6 +16,7 @@ import { SignupComponent } from './user/signup/signup.component';
 import { AddnewComponent } from './tips/addnew/addnew.component';
 import { ArticleComponent } from './tips/article/article.component';
 import { UpdateComponent } from './tips/update/update.component';
+import { DeleteComponent } from './tips/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UpdateComponent } from './tips/update/update.component';
     AddnewComponent,
     ArticleComponent,
     UpdateComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

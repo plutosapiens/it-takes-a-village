@@ -8,6 +8,7 @@ import { CatalogComponent } from './tips/catalog/catalog.component';
 import { AddnewComponent } from './tips/addnew/addnew.component';
 import { ArticleComponent } from './tips/article/article.component';
 import { UpdateComponent } from './tips/update/update.component';
+import { DeleteComponent } from './tips/delete/delete.component';
 
 const routes: Routes = [
   { path:'', pathMatch: 'full', redirectTo: '/home' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'addnew', component: AddnewComponent },
   { path: 'article/:id', component: ArticleComponent },
   { path: 'update/:id', component: UpdateComponent },
+  { path: 'delete/:id', component: DeleteComponent },
 
 
 ];

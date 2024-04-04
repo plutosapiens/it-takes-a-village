@@ -22,4 +22,14 @@ export class DataService {
       console.error("Error updating post:", error)
     })
     }
-}
+
+    async deletePost(postId: string) {
+      try {
+        await this.firestore.collection('catalog').doc(postId).delete();
+        console.log('Post deleted successfully!');
+      } catch (error) {
+        console.error("Error deleting post:", error);
+      }
+    }
+  }
+

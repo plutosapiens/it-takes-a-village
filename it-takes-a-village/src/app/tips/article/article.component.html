@@ -13,7 +13,7 @@
                 <img class="image" [src]="post?.img" alt="catalog-house"> <!-- These brackets signal Angular that I'm using property binding.  -->
                 <a [routerLink]="['/update/', urlId]">Edit</a> 
 
-                <a href="#">Delete</a>
+                <a [routerLink]="['/delete/', urlId]">Delete</a>
                 <a href="#">Like</a>
             </div>
         </div>
