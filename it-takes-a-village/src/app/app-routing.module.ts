@@ -26,8 +26,8 @@ const routes: Routes = [
   { path: 'update/:id', component: UpdateComponent, canActivate: [AuthGuard] },
   { path: 'delete/:id', component: DeleteComponent, canActivate: [AuthGuard] },
   { path: '404', component: FourofourComponent },
-  { path: '**', component: FourofourComponent },
   { path: 'favourites', component: FavouritesComponent, canActivate: [AuthGuard] },
+  { path: '**', component: FourofourComponent },
 ];
 
 @NgModule({
