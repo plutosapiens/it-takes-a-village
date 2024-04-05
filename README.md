@@ -1,4 +1,5 @@
-# It Takes a Village
+![it takes a village header](https://github.com/plutosapiens/it-takes-a-village/assets/96972840/7d303fcd-a43b-44ad-9f54-bb0e8854cfb3)
+
 
 ## Project Overview
 
@@ -7,13 +8,21 @@ The app offers a user-friendly interface with public and private sections:
 
 ### Public Section (accessible to everyone without authentication):
 - Homepage provides a welcoming introduction to the app.
+  ![home-screenshot](https://github.com/plutosapiens/it-takes-a-village/assets/96972840/bcbdf19a-fb4d-450b-b2d6-780ed5c85a35)
 - Login and Signup pages allow users to create accounts and access the private features.
+  ![signup screenshot](https://github.com/plutosapiens/it-takes-a-village/assets/96972840/6b24ff15-bb49-44ae-9eb3-9c9f737a2290)
 - Catalog page showcases a collection of user submitted articles.
+  ![catalog-screenshot](https://github.com/plutosapiens/it-takes-a-village/assets/96972840/a6a07ce8-f98f-4eb7-9a21-0aa70b03472d)
+
+
 
 ### Private Section (accessible only to logged-in users):
 - Article details pages display the full content of each childcare tip.
+  ![liked-article-screenshot](https://github.com/plutosapiens/it-takes-a-village/assets/96972840/2d582d0e-5613-4c7d-849a-e6c9feb0d852)
 - Users can add new articles.
+  ![add-new-screenshot](https://github.com/plutosapiens/it-takes-a-village/assets/96972840/8be3a7dd-60e7-4e91-b240-f2f2a34158b6)
 - Existing articles can be updated or deleted by their creators.
+  ![own-article-screenshot](https://github.com/plutosapiens/it-takes-a-village/assets/96972840/2597936e-fe68-41c1-b930-b152d504e20b)
 - Liked articles are automatically saved to a user's favorites list for easy reference.
 
 ## Technologies
