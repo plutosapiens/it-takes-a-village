@@ -23,8 +23,7 @@ export class FavouritesComponent implements OnInit {
       .getCurrentUser()
       .pipe(take(1))
       .toPromise();
-    currentUserId = user ? user.uid : 'idk';
-    console.log('1currentuser id:', currentUserId);
+    currentUserId = user ? user.uid : '';
     this.handleUserData(currentUserId);
   }
 

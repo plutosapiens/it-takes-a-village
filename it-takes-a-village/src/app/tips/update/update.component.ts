@@ -41,13 +41,11 @@ export class UpdateComponent implements OnInit {
       .getCurrentUser()
       .pipe(take(1))
       .toPromise();
-    currentUserId = user ? user.uid : 'idk';
-    console.log('1currentuser id:', currentUserId);
+    currentUserId = user ? user.uid : '';
     this.handleUserData(currentUserId);
   }
 
   handleUserData(currentUserId: string): void {
-    console.log('2currentuser email:', currentUserId);
 
     this.postId = this.route.snapshot.paramMap.get('id');
     if (this.postId) {
@@ -57,12 +55,11 @@ export class UpdateComponent implements OnInit {
         .subscribe((post: Post | undefined) => {
           if (post) {
             if (currentUserId !== post.ownerId) {
-              console.error('YOU ARE NOT ALOWED!');
+              console.error('You are not the owner of this post!');
               this.router.navigate(['/404']);
             }
             // Populate the form with the retrieved post data
             this.postData = post;
-            console.log('ownerid', this.postData.ownerId);
           } else {
             console.error('Post data not found.');
           }
@@ -86,7 +83,6 @@ export class UpdateComponent implements OnInit {
           .then((downloadUrl) => {
             // Update the postData object with the imageUrl
             this.postData.img = downloadUrl;
-            console.log('File available at', downloadUrl);
           })
           .catch((error) => {
             console.error('Error uploading image:', error);
@@ -104,13 +100,12 @@ export class UpdateComponent implements OnInit {
     // Check if any required fields are empty
     if (!this.postData.title || !this.postData.img || !this.postData.content) {
       console.error('Please fill in all required fields.');
-      alert('field is required.');
+      alert('Please fill in all required fields.');
 
       return;
     }
 
     const postId = this.route.snapshot.paramMap.get('id');
-    console.log('Post ID:', postId); // Log the value of postId
     const checkLoaderInterval = setInterval(() => {
       if (!this.isLoading) {
         // Proceed only if isLoading is false
@@ -119,7 +114,6 @@ export class UpdateComponent implements OnInit {
           this.dataService
             .updatePost(postId, this.postData)
             .then(() => {
-              console.log('Post updated successfully!');
               this.router.navigate(['/catalog']);
             })
             .catch((error) => {

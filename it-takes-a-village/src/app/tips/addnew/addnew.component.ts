@@ -24,11 +24,10 @@ export class AddnewComponent implements OnInit {
       .pipe(take(1))
       .toPromise();
     if (!user) {
-      console.error('You are not signed in sorry :)');
+      console.error('You are not signed in.');
       this.router.navigate(['/404']);
-    } else {
-      console.log('good, youre signed in!', user);
     }
+
   }
 
   async addPost() {
@@ -74,7 +73,6 @@ export class AddnewComponent implements OnInit {
 
       // Call addPost from data service
       await this.dataService.addPost(newPost);
-      console.log('Item added successfully!');
 
       this.router.navigate(['/catalog']);
     } catch (error) {

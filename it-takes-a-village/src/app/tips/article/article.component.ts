@@ -38,9 +38,7 @@ export class ArticleComponent implements OnInit {
       .toPromise();
     currentUserId = user ? user.uid : 'idk';
     this.userId = currentUserId;
-    console.log('1currentuser id:', currentUserId);
     this.handleUserData(currentUserId);
-    console.log('isowner', this.isOwner);
   }
 
   handleUserData(currentUserId: string) {

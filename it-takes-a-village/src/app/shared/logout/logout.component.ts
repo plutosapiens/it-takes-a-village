@@ -20,7 +20,7 @@ export class LogoutComponent implements OnInit {
       })
       .catch((error) => {
         console.error('Logout error:', error);
-        // Handle logout error (optional)
+        throw error;
       });
   }
 }

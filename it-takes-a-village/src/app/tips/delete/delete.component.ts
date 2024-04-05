@@ -28,8 +28,7 @@ export class DeleteComponent implements OnInit {
       .getCurrentUser()
       .pipe(take(1))
       .toPromise();
-    currentUserId = user ? user.uid : 'idk';
-    console.log('1currentuser id:', currentUserId);
+    currentUserId = user ? user.uid : '';
     this.handleUserData(currentUserId);
   }
 
@@ -41,7 +40,7 @@ export class DeleteComponent implements OnInit {
         .subscribe((post: Post | undefined) => {
           if (post) {
             if (currentUserId !== post.ownerId) {
-              console.error('NOT TODAY BUCKO!');
+              console.error('You are not the owner of this item!');
               this.router.navigate(['/404']);
             } else {
               this.deletePost(this.postId!);
@@ -57,7 +56,6 @@ export class DeleteComponent implements OnInit {
     this.dataService
       .deletePost(postId)
       .then(() => {
-        console.log('Post deleted successfully!');
         this.router.navigate(['/catalog']); // Navigate to catalog route
       })
       .catch((error) => {
