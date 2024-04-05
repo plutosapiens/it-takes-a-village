@@ -7,12 +7,12 @@
 .info-container {
   background-color: #00000059;
   border-radius: 5em;
-  padding: 3em 3em 0em 3em;
+  padding: 3em 3em 3em 3em;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  gap: 8em;
-  margin: 2em 2em;
+  gap: 4em;
+  margin: 2em 2em 2em 2em;
 }
 
 .banner p {

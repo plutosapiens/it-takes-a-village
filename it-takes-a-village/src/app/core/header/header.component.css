@@ -5,6 +5,7 @@
 }
 
 .site-header nav ul {
+  min-height: 2.4em;
   display: flex;
 }
 

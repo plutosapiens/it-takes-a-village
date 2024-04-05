@@ -11,8 +11,8 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  gap: 2.6em;
-  margin: 0em 2em 2em 2em;
+  gap: 0;
+  margin: 2em 2em 2em 2em;
 }
 
 .banner p {
