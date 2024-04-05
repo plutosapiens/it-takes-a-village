@@ -27,7 +27,6 @@ export class AddnewComponent implements OnInit {
       console.error('You are not signed in.');
       this.router.navigate(['/404']);
     }
-
   }
 
   async addPost() {
