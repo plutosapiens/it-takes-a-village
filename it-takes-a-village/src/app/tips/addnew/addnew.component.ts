@@ -61,7 +61,7 @@ export class AddnewComponent implements OnInit {
         .getCurrentUser()
         .pipe(take(1))
         .toPromise();
-      ownerId = user ? user.uid : 'idk';
+      ownerId = user ? user.uid : '';
 
       const newPost = {
         title: title,
