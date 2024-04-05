@@ -14,14 +14,12 @@ import { ErrorComponent } from './error/error.component';
     LikedbtnComponent,
     ErrorComponent,
   ],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [
     LogoutComponent,
     LoaderComponent,
     LikebtnComponent,
-    LikedbtnComponent
-  ]
+    LikedbtnComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

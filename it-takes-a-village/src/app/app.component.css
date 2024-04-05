@@ -1,14 +1,14 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/paul-rabaud-asset.png?alt=media&token=0fdc9694-d4bf-423d-b5f9-91d9ebbd28be);
-    background-repeat: no-repeat;
-    background-size: 100vw;
-    background-position: top center;
-    background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/it-takes-a-village-cddb8.appspot.com/o/paul-rabaud-asset.png?alt=media&token=0fdc9694-d4bf-423d-b5f9-91d9ebbd28be);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: top center;
+  background-attachment: fixed;
 }
 
 app-header, app-footer {
-    z-index: 1;
+  z-index: 1;
 }

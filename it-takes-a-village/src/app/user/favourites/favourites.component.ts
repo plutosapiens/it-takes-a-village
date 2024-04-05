@@ -7,34 +7,40 @@ import { Post } from 'src/app/types/post';
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',
-  styleUrls: ['./favourites.component.css']
+  styleUrls: ['./favourites.component.css'],
 })
-export class FavouritesComponent implements OnInit{
+export class FavouritesComponent implements OnInit {
   posts: Post[] = [];
 
-  constructor(private apiService: ApiService,
+  constructor(
+    private apiService: ApiService,
     private authService: AuthService
-    ) {}
+  ) {}
 
-  async ngOnInit(): Promise <void> {
+  async ngOnInit(): Promise<void> {
     let currentUserId: string = '';
-    const user = await this.authService.getCurrentUser().pipe(take(1)).toPromise();
+    const user = await this.authService
+      .getCurrentUser()
+      .pipe(take(1))
+      .toPromise();
     currentUserId = user ? user.uid : 'idk';
-    console.log('1currentuser id:', currentUserId )
+    console.log('1currentuser id:', currentUserId);
     this.handleUserData(currentUserId);
-
-
-
   }
-  
+
   handleUserData(currentUserId: string): void {
-    this.apiService.getCatalogItems()
-      .subscribe(data => {
+    this.apiService.getCatalogItems().subscribe(
+      (data) => {
         // Filter using map and filter combination
         this.posts = data
-          .map(post => (post.likedBy && post.likedBy.includes(currentUserId) ? post : undefined))
-          .filter(post => post !== undefined) as Post[]; // Type assertion after filtering
-      }, error => console.error(error));
+          .map((post) =>
+            post.likedBy && post.likedBy.includes(currentUserId)
+              ? post
+              : undefined
+          )
+          .filter((post) => post !== undefined) as Post[]; // Type assertion after filtering
+      },
+      (error) => console.error(error)
+    );
   }
-  
 }

@@ -5,20 +5,20 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.css']
+  styleUrls: ['./logout.component.css'],
 })
 export class LogoutComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-  
-    this.authService.logout()
+    this.authService
+      .logout()
       .then(() => {
         console.log('Logged out successfully');
         // Redirect to home page after logout
         this.router.navigate(['/home']);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Logout error:', error);
         // Handle logout error (optional)
       });

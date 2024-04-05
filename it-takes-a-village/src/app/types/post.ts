@@ -1,8 +1,8 @@
 export interface Post {
-    id?: string,
-    img: string;
-    title: string;
-    content: string;
-    ownerId?: string;
-    likedBy: string[];
+  id?: string;
+  img: string;
+  title: string;
+  content: string;
+  ownerId?: string;
+  likedBy: string[];
 }

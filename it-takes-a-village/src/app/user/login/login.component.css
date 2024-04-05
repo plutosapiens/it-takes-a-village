@@ -1,58 +1,57 @@
 .site-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
-  }
-  
-  .info-container {
-    background-color: #00000059;
-    border-radius: 5em;
-    padding: 3em 0 0em 3em;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 10em;
-    margin: 0 0 2em 2em;
-  }
-  
-  .banner p {
-    font-size: 1.2em;
-    line-height: 1.1em;
-    color: #fff;
-  }
-  
-  .banner img {
-    width: 20em;
-    height: auto;
-  }
-  
-  form {
-    margin: 3em;
-    display: grid;
-    grid-template-columns:1fr;
-    gap: 1em;
-  }
-  
-  button {
-    border-radius: 2em;
-    padding: 1.5em;
-    background-color: #D9D9D9;
-    color: #000000;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #000000;
-    color: #D9D9D9;
-  }
-  
-  input {
-    border-radius: 2em;
-    padding: 1.5em;
-    background-color: #000000c5;
-    color: #D9D9D9;
-    border: 2px solid #000000c5;
-  }
-  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.info-container {
+  background-color: #00000059;
+  border-radius: 5em;
+  padding: 3em 0 0em 3em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10em;
+  margin: 0 0 2em 2em;
+}
+
+.banner p {
+  font-size: 1.2em;
+  line-height: 1.1em;
+  color: #fff;
+}
+
+.banner img {
+  width: 20em;
+  height: auto;
+}
+
+form {
+  margin: 3em;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+
+button {
+  border-radius: 2em;
+  padding: 1.5em;
+  background-color: #d9d9d9;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #000000;
+  color: #d9d9d9;
+}
+
+input {
+  border-radius: 2em;
+  padding: 1.5em;
+  background-color: #000000c5;
+  color: #d9d9d9;
+  border: 2px solid #000000c5;
+}

@@ -14,11 +14,7 @@ import { FourofourComponent } from './fourofour/fourofour.component';
     HomeComponent,
     FourofourComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule
-  ],
+  imports: [CommonModule, SharedModule, RouterModule],
   exports: [HeaderComponent, FooterComponent, HomeComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

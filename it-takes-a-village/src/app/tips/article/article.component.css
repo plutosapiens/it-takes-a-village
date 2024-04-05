@@ -1,88 +1,87 @@
 .container {
-    z-index: 1;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    border: 2px;
-    justify-content: center;
-    align-items: center;
+  z-index: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  border: 2px;
+  justify-content: center;
+  align-items: center;
 }
 
 .site-section.banner {
-    max-height: 15em;
-    background-color: #00000059;
-    border-radius: 5em;
-    padding: 1em;
-    margin: 2em 5em;
+  max-height: 15em;
+  background-color: #00000059;
+  border-radius: 5em;
+  padding: 1em;
+  margin: 2em 5em;
 }
 
 .site-section.banner h2 {
-    font-size: 4em;
-    font-weight: 100;
-    line-height: 0.9em;
-    color: #fff;
+  font-size: 4em;
+  font-weight: 100;
+  line-height: 0.9em;
+  color: #fff;
 }
 
-.button {   
-    display: block;
-    border-radius: 10px;
-    text-decoration: none;
-    max-width: 10rem;
-    padding: 0.5em 1.5em;
-    text-decoration: none;
-    color: #000000;
-    background-color: #D9D9D9;
+.button {
+  display: block;
+  border-radius: 10px;
+  text-decoration: none;
+  max-width: 10rem;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  color: #000000;
+  background-color: #d9d9d9;
 }
 
 .button:hover {
-    color: #D9D9D9;
-    background-color: #000000;
+  color: #d9d9d9;
+  background-color: #000000;
 }
 
 .content-section {
-    max-height: 30em;
-    margin: 0 5em;
-    overflow: auto;
+  max-height: 30em;
+  margin: 0 5em;
+  overflow: auto;
 }
 
 .content.container {
-    border-radius: 2em;
-    padding: 1em;
-    margin: 1em 0 ;
-    background-color: #000000c5;
-    color: #D9D9D9;
-    display: flex;
-    align-items: flex-start;
+  border-radius: 2em;
+  padding: 1em;
+  margin: 1em 0;
+  background-color: #000000c5;
+  color: #d9d9d9;
+  display: flex;
+  align-items: flex-start;
 }
 
 .content-interact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.content-interact  img{
-    margin-bottom: 0.1em;
-    border-radius: 2em;
-    width: 10em;
-    height: 10em;
-    object-fit: cover;
+.content-interact img {
+  margin-bottom: 0.1em;
+  border-radius: 2em;
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
 }
 
 .content.container p {
-    margin: 1em;
-    text-align: justify;
+  margin: 1em;
+  text-align: justify;
 }
 
 .content-interact a {
-    width: 10em;
-    text-align: center;
-    text-decoration: none;
-    color: #D9D9D9;
-    background-color: #00202F;
-    border-radius: 0.7em;
-    box-shadow: none;
-    padding: 0.7em;
-    margin: 0.3em;
+  width: 10em;
+  text-align: center;
+  text-decoration: none;
+  color: #d9d9d9;
+  background-color: #00202f;
+  border-radius: 0.7em;
+  box-shadow: none;
+  padding: 0.7em;
+  margin: 0.3em;
 }

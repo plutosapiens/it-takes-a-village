@@ -5,7 +5,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule }  from '@angular/fire/compat/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment.development';
 
@@ -37,13 +37,12 @@ import { AuthGuard } from './shared/auth.guard';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule,   
+    SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-   FormsModule,
+    FormsModule,
   ],
   providers: [AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}

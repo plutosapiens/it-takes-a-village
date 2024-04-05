@@ -1,22 +1,19 @@
 <section class="site-section banner">
-    <div class="welcome-banner container">
-        <h2>{{ post?.title }}</h2>
-    </div>
+  <div class="welcome-banner container">
+    <h2>{{ post?.title }}</h2>
+  </div>
 </section>
 <section class="content-section">
-    <div class="content container">
-        
-        <div class="content-text">
-            <p>{{ post?.content }}</p>
-        </div>
-        <div class="content-interact">
-            <img class="image" [src]="post?.img" alt="catalog-house"> <!-- These brackets signal Angular that I'm using property binding.  -->
-            <a *ngIf="isOwner" [routerLink]="['/update/', urlId]">Edit</a> 
-            <a *ngIf="isOwner" [routerLink]="['/delete/', urlId]">Delete</a>
-            <app-likebtn *ngIf="!isOwner && !isLiked" (click)="likePost()"/>
-            <app-likedbtn *ngIf="!isOwner && isLiked" (click)="likePost()"/>
-            <!-- <a *ngIf="!isOwner && !isLiked" (click)="likePost()">Like</a> -->
-            <!-- <a *ngIf="!isOwner && isLiked" (click)="likePost()">Liked</a> -->
-       </div>
+  <div class="content container">
+    <div class="content-text">
+      <p>{{ post?.content }}</p>
     </div>
+    <div class="content-interact">
+      <img class="image" [src]="post?.img" alt="catalog-house" />
+      <a *ngIf="isOwner" [routerLink]="['/update/', urlId]">Edit</a>
+      <a *ngIf="isOwner" [routerLink]="['/delete/', urlId]">Delete</a>
+      <app-likebtn *ngIf="!isOwner && !isLiked" (click)="likePost()" />
+      <app-likedbtn *ngIf="!isOwner && isLiked" (click)="likePost()" />
+    </div>
+  </div>
 </section>

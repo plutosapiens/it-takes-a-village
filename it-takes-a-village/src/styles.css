@@ -2,15 +2,15 @@
 @import url(https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap);
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font: 18px "Karla";
+  font: 18px "Karla";
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Cormorant Infant";
+  font-family: "Cormorant Infant";
 }

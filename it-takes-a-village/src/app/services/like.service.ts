@@ -3,21 +3,26 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LikeService {
-  
+  constructor(private firestore: AngularFirestore) {}
+
   unlikeItem(itemId: string, userId: string): Promise<void> {
-    return this.firestore.collection('catalog').doc(itemId).update({
-      likedBy: firebase.firestore.FieldValue.arrayRemove(userId)
-    });
+    return this.firestore
+      .collection('catalog')
+      .doc(itemId)
+      .update({
+        likedBy: firebase.firestore.FieldValue.arrayRemove(userId),
+      });
   }
 
-  constructor(private firestore: AngularFirestore) { }
-
   likeItem(itemId: string, userId: string): Promise<void> {
-    return this.firestore.collection('catalog').doc(itemId).update({
-      likedBy: firebase.firestore.FieldValue.arrayUnion(userId)
-    });
+    return this.firestore
+      .collection('catalog')
+      .doc(itemId)
+      .update({
+        likedBy: firebase.firestore.FieldValue.arrayUnion(userId),
+      });
   }
 }

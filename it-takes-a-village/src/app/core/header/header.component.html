@@ -1,5 +1,5 @@
 <header class="site-header">
-<div class="header">
+  <div class="header">
     <p *ngIf="userEmail">Welcome back {{ userEmail }}</p>
     <p *ngIf="!userEmail">Hi guest</p>
     <a *ngIf="userEmail" routerLink="/logout">Logout</a>
@@ -12,9 +12,6 @@
       <li><a *ngIf="userEmail" routerLink="/favourites">Favourites</a></li>
       <li><a *ngIf="!userEmail" routerLink="/signup">Sign Up</a></li>
       <li><a *ngIf="!userEmail" routerLink="/login">Login</a></li>
-
     </ul>
   </nav>
 </header>
-
-<!-- (click)="logout()" -->
